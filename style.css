@@ -72,3 +72,38 @@ h1, h2, h3 {
 .card a:hover {
   text-decoration: underline;
 }
+
+.timeline {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.timeline-date {
+  min-width: 100px;
+  font-weight: bold;
+  color: #00507a;
+}
+
+.timeline-content {
+  background-color: #f8f8f8;
+  padding: 15px 20px;
+  border-left: 4px solid #00507a;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.timeline-content strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1.05rem;
+  color: #333;
+}
+
