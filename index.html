@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Medical Technical Writer - Maria Rossi</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
   <header>
@@ -19,14 +20,14 @@
   </header>
 
   <main>
-    <section id="about">
+    <section id="about" data-aos="fade-up">
     <h1>About Me</h1>
     <p>
       Mi chiamo <strong>Maria Rossi</strong> e sono una <em>Medical Technical Writer</em> con oltre 8 anni di esperienza nella scrittura e revisione di contenuti scientifici, clinici e regolatori.
       Ho collaborato con aziende farmaceutiche, biomedicali e agenzie di comunicazione per creare documenti chiari, accurati e conformi alle normative internazionali.
     </p>
   
-    <div class="timeline">
+    <div class="timeline" data-aos="fade-left">
       <div class="timeline-item">
         <div class="timeline-date">2024 – oggi</div>
         <div class="timeline-content">
@@ -53,7 +54,7 @@
     </div>
   </section>
 
-    <section id="portfolio">
+    <section id="portfolio" data-aos="fade-up">
       <h2>Portfolio</h2>
       <div class="card-container">
         <div class="card">
@@ -74,7 +75,7 @@
       </div>
     </section>
 
-    <section id="contacts">
+    <section id="contacts" data-aos="fade-up">
       <h2>Contacts</h2>
       <p>
         <a href="https://linkedin.com/in/maria-rossi" target="_blank">LinkedIn</a><br />
@@ -84,5 +85,10 @@
   </main>
 
   <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
 </body>
 </html>
