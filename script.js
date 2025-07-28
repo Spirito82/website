@@ -1,4 +1,5 @@
-const navLinks = document.querySelectorAll(".navbar a");
+// Evidenziazione sezione attiva
+const navAnchors = document.querySelectorAll(".navbar a");
 const sections = document.querySelectorAll("main section");
 
 window.addEventListener("scroll", () => {
@@ -11,7 +12,7 @@ window.addEventListener("scroll", () => {
     }
   });
 
-  navLinks.forEach((link) => {
+  navAnchors.forEach((link) => {
     link.classList.remove("active");
     if (link.getAttribute("href") === `#${current}`) {
       link.classList.add("active");
@@ -19,9 +20,10 @@ window.addEventListener("scroll", () => {
   });
 });
 
+// Funzionalità hamburger
 const toggleBtn = document.getElementById("nav-toggle");
-const navLinks = document.getElementById("nav-links");
+const navList = document.getElementById("nav-links");
 
 toggleBtn.addEventListener("click", () => {
-  navLinks.classList.toggle("show");
+  navList.classList.toggle("show");
 });
