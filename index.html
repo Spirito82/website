@@ -1,118 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Medical Technical Writer - Maria Rossi</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <meta name="description" content="Sito di Maria Rossi, medical technical writer freelance specializzata in redazione scientifica, regolatoria e tecnica.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>B&B Luxury Bologna</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">Maria Rossi</div>
-      <div class="nav-toggle" id="nav-toggle">&#9776;</div>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#expertise">Expertise</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contacts">Contacts</a></li>
-      </ul>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">B&B Luxury Bologna</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Foto</a></li>
+          <li class="nav-item"><a class="nav-link" href="#availability">Disponibilità</a></li>
+          <li class="nav-item"><a class="nav-link" href="#rules">Regole</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Servizi</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reviews">Recensioni</a></li>
+          <li class="nav-item"><a class="nav-link" href="#explore">Scopri Bologna</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacts">Contatti</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
-  </header>
 
-  <main>
-    <section id="about" data-aos="fade-up">
-    <h1>About Me</h1>
-    <p>
-      Mi chiamo <strong>Maria Rossi</strong> e sono una <em>Medical Technical Writer</em> con oltre 8 anni di esperienza nella scrittura e revisione di contenuti scientifici, clinici e regolatori.
-      Ho collaborato con aziende farmaceutiche, biomedicali e agenzie di comunicazione per creare documenti chiari, accurati e conformi alle normative internazionali.
-    </p>
-  
-    <div class="timeline" data-aos="fade-left">
-      <div class="timeline-item">
-        <div class="timeline-date">2024 – oggi</div>
-        <div class="timeline-content">
-          <strong>Consulente freelance per aziende farmaceutiche</strong>
-          <p>Redazione di documentazione regolatoria e articoli scientifici in ambito oncologico e infettivologico.</p>
-        </div>
-      </div>
-  
-      <div class="timeline-item">
-        <div class="timeline-date">2020 – 2024</div>
-        <div class="timeline-content">
-          <strong>Medical Writer @ MedCom Solutions</strong>
-          <p>Produzione di materiale informativo per congressi internazionali e supporto a team di ricerca clinica.</p>
-        </div>
-      </div>
-  
-      <div class="timeline-item">
-        <div class="timeline-date">2017 – 2020</div>
-        <div class="timeline-content">
-          <strong>Junior Technical Writer @ BioTechDocs</strong>
-          <p>Stesura e revisione di manuali tecnici e schede di sicurezza per dispositivi di classe II e III.</p>
-        </div>
+  <!-- Hero / Home -->
+  <section id="home" class="vh-100 d-flex align-items-center text-center bg-light">
+    <div class="container">
+      <h1 class="display-4 fw-bold">B&B Luxury Bologna</h1>
+      <p class="lead">Il tuo rifugio elegante nel cuore di Bologna</p>
+      <a href="#availability" class="btn btn-primary btn-lg mt-3">Prenota ora</a>
+    </div>
+  </section>
+
+  <!-- Foto / Gallery -->
+  <section id="gallery" class="py-5 bg-white">
+    <div class="container">
+      <h2 class="mb-4 text-center">Foto</h2>
+      <div class="row g-3">
+        <div class="col-md-4"><img src="https://via.placeholder.com/400x300" class="img-fluid rounded" alt="Camera"></div>
+        <div class="col-md-4"><img src="https://via.placeholder.com/400x300" class="img-fluid rounded" alt="Sala"></div>
+        <div class="col-md-4"><img src="https://via.placeholder.com/400x300" class="img-fluid rounded" alt="Bagno"></div>
       </div>
     </div>
   </section>
 
-    <section id="expertise" data-aos="fade-up">
-      <h2>Expertise</h2>
-      <div class="card-container">
-        <div class="card">
-          <h3>X</h3>
-          <p>Y</p>
-        </div>
-        <div class="card">
-          <h3>X</h3>
-          <p>Y</p>
-        </div>
-        <div class="card">
-          <h3>X</h3>
-          <p>Y</p>
-        </div>
+  <!-- Disponibilità -->
+  <section id="availability" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4 text-center">Disponibilità & Prezzi</h2>
+      <p class="text-center">Qui andrà il calendario con giorni liberi/occupati e prezzi.</p>
+      <div class="text-center">
+        <a href="#" class="btn btn-success">Prenota su Booking</a>
       </div>
-    </section>
-    
-    <section id="portfolio" data-aos="fade-up">
-      <h2>Portfolio</h2>
-      <div class="card-container">
-        <div class="card">
-          <h3>Dispositivi medici e sicurezza d’uso</h3>
-          <p>Approfondimento sulla scrittura tecnica di IFU e manuali per dispositivi di classe III.</p>
-          <a href="https://esempio.com/articolo1" target="_blank">Leggi</a>
-        </div>
-        <div class="card">
-          <h3>Vaccini a mRNA: comunicare la scienza</h3>
-          <p>Come rendere accessibili i contenuti scientifici ai non addetti ai lavori.</p>
-          <a href="https://esempio.com/articolo2" target="_blank">Leggi</a>
-        </div>
-        <div class="card">
-          <h3>Clinical Study Reports: struttura ed errori comuni</h3>
-          <p>Linee guida per la stesura efficace di CSR in ambito farmaceutico.</p>
-          <a href="https://esempio.com/articolo3" target="_blank">Leggi</a>
-        </div>
+    </div>
+  </section>
+
+  <!-- Regole -->
+  <section id="rules" class="py-5 bg-white">
+    <div class="container">
+      <h2 class="mb-4 text-center">Regole del B&B</h2>
+      <ul>
+        <li>Check-in: dalle 14:00 alle 20:00</li>
+        <li>Check-out: entro le 11:00</li>
+        <li>Non fumare all’interno</li>
+        <li>No animali domestici</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Servizi -->
+  <section id="services" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4 text-center">Servizi</h2>
+      <div class="row text-center">
+        <div class="col-md-4"><p>🍳 Colazione pronta</p></div>
+        <div class="col-md-4"><p>☕ Macchina del caffè</p></div>
+        <div class="col-md-4"><p>📶 Wi-Fi veloce</p></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contacts" data-aos="fade-up">
-      <h2>Contacts</h2>
-      <p>
-        <a href="https://linkedin.com/in/maria-rossi" target="_blank">LinkedIn</a><br />
-        <a href="mailto:maria.rossi@example.com">maria.rossi@example.com</a>
-      </p>
-    </section>
-  </main>
+  <!-- Recensioni -->
+  <section id="reviews" class="py-5 bg-white">
+    <div class="container">
+      <h2 class="mb-4 text-center">Recensioni</h2>
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">“Pulizia impeccabile e posizione perfetta”</p>
+        <footer class="blockquote-footer">Valutazione: 9.5/10 su Booking</footer>
+      </blockquote>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+  <!-- Scopri Bologna -->
+  <section id="explore" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4 text-center">Scopri Bologna</h2>
+      <p class="text-center">A pochi passi da Piazza Maggiore, le Due Torri e il Mercato delle Erbe.</p>
+    </div>
+  </section>
 
+  <!-- FAQ -->
+  <section id="faq" class="py-5 bg-white">
+    <div class="container">
+      <h2 class="mb-4 text-center">FAQ</h2>
+      <p><strong>Dove parcheggiare?</strong> Ci sono parcheggi a pagamento a 300m dal B&B.</p>
+      <p><strong>Colazione inclusa?</strong> Sì, troverai la colazione pronta in appartamento.</p>
+    </div>
+  </section>
+
+  <!-- Contatti -->
+  <section id="contacts" class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="mb-4">Contatti</h2>
+      <p>Email: info@bbluxurybologna.it</p>
+      <p>Tel: +39 333 123 4567</p>
+      <div class="ratio ratio-16x9 mt-4">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light text-center py-3">
+    <p class="mb-0">&copy; 2025 B&B Luxury Bologna - Tutti i diritti riservati</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
