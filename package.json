@@ -1,0 +1,15 @@
+{
+	"name": "bnb-availability",
+	"version": "1.0.0",
+	"description": "Script per convertire il calendario Booking ICS in JSON per il B&B",
+	"main": "scripts/ical2json.js",
+	"scripts": {
+		"start": "node scripts/ical2json.js"
+	},
+	"dependencies": {
+		"ical": "^0.8.0",
+		"axios": "^1.6.0"
+	},
+	"author": "",
+	"license": "ISC"
+}
