@@ -174,3 +174,227 @@ h1, h2, h3 {
     flex-direction: column;
   }
 }
+
+/* Stili per il calendario */
+.fc-booked-day {
+  background-color: #f8d7da !important;
+  border-color: #f5c6cb !important;
+  color: #721c24 !important;
+}
+
+.fc-past-day {
+  background-color: #f8f9fa !important;
+  border-color: #dee2e6 !important;
+  color: #6c757d !important;
+}
+
+.fc-available-day {
+  background-color: #d4edda !important;
+  border-color: #c3e6cb !important;
+  color: #155724 !important;
+  font-weight: bold;
+}
+
+.fc-selected {
+  background-color: #007bff !important;
+  border-color: #0056b3 !important;
+  color: white !important;
+}
+
+/* Stili per la slideshow - selettori ultra-specifici */
+div#propertyCarousel.carousel.slide {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  overflow: hidden !important;
+  max-width: 100%;
+  margin: 0 auto;
+  height: 350px !important;
+  min-height: 350px !important;
+  max-height: 350px !important;
+}
+
+div#propertyCarousel .carousel-inner {
+  border-radius: 15px;
+  height: 350px !important;
+  min-height: 350px !important;
+  max-height: 350px !important;
+  overflow: hidden !important;
+}
+
+div#propertyCarousel .carousel-item {
+  height: 350px !important;
+  min-height: 350px !important;
+  max-height: 350px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+}
+
+div#propertyCarousel .carousel-item img {
+  width: 100% !important;
+  height: 350px !important;
+  min-height: 350px !important;
+  max-height: 350px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 15px;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+.carousel-caption {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  border-radius: 0 0 15px 15px;
+  padding: 20px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.carousel-caption h5 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.carousel-control-prev {
+  left: 20px;
+}
+
+.carousel-control-next {
+  right: 20px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.carousel-indicators {
+  bottom: 20px;
+}
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 5px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.carousel-indicators button.active {
+  background-color: white;
+  border-color: white;
+}
+
+/* Stili per la modale immagini */
+#imageModal .modal-content {
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+#imageModal .modal-body {
+  padding: 20px;
+}
+
+#imageModal img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.clickable-image {
+  transition: transform 0.2s ease;
+}
+
+.clickable-image:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #propertyCarousel {
+    height: 250px !important;
+  }
+  
+  .carousel-item {
+    height: 250px !important;
+    min-height: 250px !important;
+    max-height: 250px !important;
+  }
+  
+  .carousel-item img {
+    height: 250px !important;
+    min-height: 250px !important;
+    max-height: 250px !important;
+  }
+  
+  .carousel-caption {
+    display: none !important;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carousel-control-prev {
+    left: 10px;
+  }
+  
+  .carousel-control-next {
+    right: 10px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  #propertyCarousel {
+    height: 300px !important;
+  }
+  
+  .carousel-item {
+    height: 300px !important;
+    min-height: 300px !important;
+    max-height: 300px !important;
+  }
+  
+  .carousel-item img {
+    height: 300px !important;
+    min-height: 300px !important;
+    max-height: 300px !important;
+  }
+}
+
+@media (min-width: 1201px) {
+  #propertyCarousel {
+    height: 350px !important;
+  }
+  
+  .carousel-item {
+    height: 350px !important;
+    min-height: 350px !important;
+    max-height: 350px !important;
+  }
+  
+  .carousel-item img {
+    height: 350px !important;
+    min-height: 350px !important;
+    max-height: 350px !important;
+  }
+}
