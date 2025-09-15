@@ -5,7 +5,7 @@ const axios = require('axios');
 const fs = require('fs');
 
 async function run() {
-	const icalUrl = process.env.ICAL_URL; // GitHub secret
+	const icalUrl = process.env.BOOKING_ICAL_URL; // GitHub secret
 	if (!icalUrl) throw new Error('ICAL_URL missing');
 
 	const res = await axios.get(icalUrl, { responseType: 'text' });
