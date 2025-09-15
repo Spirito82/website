@@ -2,7 +2,7 @@ name: Update availability.json
 
 on:
   schedule:
-    - cron: '0 */4 * * *' # ogni 4 ore
+    - cron: '0 */1 * * *' # ogni 4 ore
   workflow_dispatch: {} # permette di lanciare manualmente
 
 permissions:
