@@ -23,7 +23,7 @@ jobs:
 
       - name: Run ICS to JSON script
         env:
-          ICAL_URL: ${{ secrets.ICAL_URL }}
+          ICAL_URL: ${{ secrets.BOOKING_ICAL_URL }}
         run: node scripts/ical2json.js
 
       - name: Commit updated JSON
