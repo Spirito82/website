@@ -1,75 +1,75 @@
 {
-	"generated_at": "2025-09-14T19:51:16.447Z",
-	"events": [
-		{
-			"uid": "9b55f0169a5380954af4f2cf5da16d53@booking.com",
-			"start": "2025-09-13",
-			"end": "2025-09-16",
-			"summary": "CLOSED - Not available",
-			"price": null
-		},
-		{
-			"uid": "698a4ac92d8b48163ee43b2c8dfcbaa7@booking.com",
-			"start": "2025-09-16",
-			"end": "2025-09-18",
-			"summary": "CLOSED - Not available",
-			"price": null
-		},
-		{
-			"uid": "e6a010ea667f7adb98039681ed08acfd@booking.com",
-			"start": "2025-09-18",
-			"end": "2025-09-20",
-			"summary": "CLOSED - Not available",
-			"price": null
-		},
-		{
-			"uid": "a3298d0164986b6af4f19edd8e1c4a23@booking.com",
-			"start": "2025-09-20",
-			"end": "2025-09-24",
-			"summary": "CLOSED - Not available",
-			"price": null
-		},
-		{
-			"uid": "c188fc316e3c395fba3a0db91d642050@booking.com",
-			"start": "2025-09-24",
-			"end": "2025-09-26",
-			"summary": "CLOSED - Not available",
-			"price": null
-		},
-		{
-			"uid": "07a92185abcd1b53b941dba669ce277d@booking.com",
-			"start": "2025-09-26",
-			"end": "2025-09-29",
-			"summary": "CLOSED - Not available",
-			"price": null
-		},
-		{
-			"uid": "d3088220761dafe0ad95205a1cba3801@booking.com",
-			"start": "2025-10-01",
-			"end": "2025-10-04",
-			"summary": "CLOSED - Not available",
-			"price": null
-		},
-		{
-			"uid": "0db1e7159cb3adb38e17ea57ae01d46e@booking.com",
-			"start": "2025-10-06",
-			"end": "2025-10-14",
-			"summary": "CLOSED - Not available",
-			"price": null
-		},
-		{
-			"uid": "112c88e318cd95c7329da7acf43a9759@booking.com",
-			"start": "2025-10-16",
-			"end": "2025-10-19",
-			"summary": "CLOSED - Not available",
-			"price": null
-		},
-		{
-			"uid": "7b77723233237f05868f385140e6c345@booking.com",
-			"start": "2025-10-24",
-			"end": "2025-10-27",
-			"summary": "CLOSED - Not available",
-			"price": null
-		}
-	]
+  "generated_at": "2025-09-15T13:29:56.624Z",
+  "events": [
+    {
+      "uid": "9b55f0169a5380954af4f2cf5da16d53@booking.com",
+      "start": "2025-09-14",
+      "end": "2025-09-17",
+      "summary": "CLOSED - Not available",
+      "price": null
+    },
+    {
+      "uid": "698a4ac92d8b48163ee43b2c8dfcbaa7@booking.com",
+      "start": "2025-09-17",
+      "end": "2025-09-19",
+      "summary": "CLOSED - Not available",
+      "price": null
+    },
+    {
+      "uid": "e6a010ea667f7adb98039681ed08acfd@booking.com",
+      "start": "2025-09-19",
+      "end": "2025-09-21",
+      "summary": "CLOSED - Not available",
+      "price": null
+    },
+    {
+      "uid": "a3298d0164986b6af4f19edd8e1c4a23@booking.com",
+      "start": "2025-09-21",
+      "end": "2025-09-25",
+      "summary": "CLOSED - Not available",
+      "price": null
+    },
+    {
+      "uid": "c188fc316e3c395fba3a0db91d642050@booking.com",
+      "start": "2025-09-25",
+      "end": "2025-09-27",
+      "summary": "CLOSED - Not available",
+      "price": null
+    },
+    {
+      "uid": "07a92185abcd1b53b941dba669ce277d@booking.com",
+      "start": "2025-09-27",
+      "end": "2025-09-30",
+      "summary": "CLOSED - Not available",
+      "price": null
+    },
+    {
+      "uid": "d3088220761dafe0ad95205a1cba3801@booking.com",
+      "start": "2025-10-02",
+      "end": "2025-10-05",
+      "summary": "CLOSED - Not available",
+      "price": null
+    },
+    {
+      "uid": "0db1e7159cb3adb38e17ea57ae01d46e@booking.com",
+      "start": "2025-10-07",
+      "end": "2025-10-15",
+      "summary": "CLOSED - Not available",
+      "price": null
+    },
+    {
+      "uid": "112c88e318cd95c7329da7acf43a9759@booking.com",
+      "start": "2025-10-17",
+      "end": "2025-10-20",
+      "summary": "CLOSED - Not available",
+      "price": null
+    },
+    {
+      "uid": "7b77723233237f05868f385140e6c345@booking.com",
+      "start": "2025-10-25",
+      "end": "2025-10-28",
+      "summary": "CLOSED - Not available",
+      "price": null
+    }
+  ]
 }
