@@ -4,6 +4,8 @@ on:
   schedule:
     - cron: '0 */4 * * *' # ogni 4 ore
   workflow_dispatch: {} # permette di lanciare manualmente
+  permissions:
+    contents: write   # <--- AGGIUNGI QUESTO
 
 jobs:
   fetch-ical:
