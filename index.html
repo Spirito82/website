@@ -42,7 +42,9 @@
 			<p class="lead">Il tuo appartamento elegante nel centro storico di Bologna</p>
 			<div class="row justify-content-center mt-4">
 				<div class="col-md-8">
-					<p class="text-muted">📍 Posizionato al centro di Bologna, a 600 metri da Mambo Museo di Arte Moderna e 300 metri da Via dell'Indipendenza. Appartamento completo con WiFi gratuito e aria condizionata in edificio storico del 1890.</p>
+					<p class="text-muted">📍 Posizionato al centro di Bologna, a 600 metri da Mambo Museo di Arte
+						Moderna e 300 metri da Via dell'Indipendenza. Appartamento completo con WiFi gratuito e aria
+						condizionata in edificio storico del 1890.</p>
 				</div>
 			</div>
 			<a href="#availability" class="btn btn-primary btn-lg mt-3">Prenota ora</a>
@@ -135,29 +137,58 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-md-6 mb-4">
-					<h4 class="text-primary mb-3">🏠 Spazi e Comfort</h4>
-					<ul class="list-unstyled">
+			<div class="row justify-content-center mb-5">
+				<div class="col-md-8 text-center">
+					<h4 class="mb-4">🏠 Spazi</h4>
+					<ul class="list-unstyled d-inline-block text-start">
 						<li class="mb-2">🛏️ <strong>Camera da letto</strong> con scrivania e armadio</li>
-						<li class="mb-2">📺 <strong>Soggiorno</strong> con TV a schermo piatto</li>
-						<li class="mb-2">🍳 <strong>Cucina completa</strong> con utensili e bollitore elettrico</li>
-						<li class="mb-2">🍽️ <strong>Sala da pranzo</strong></li>
+						<li class="mb-2">📺 <strong>Soggiorno</strong> con TV e divano</li>
+						<li class="mb-2">🍽️ <strong>Sala da pranzo con cucina</strong></li>
 						<li class="mb-2">🚿 <strong>Bagno privato</strong> con doccia, bidet e asciugacapelli</li>
-						<li class="mb-2">🧻 <strong>Asciugamani</strong> e carta igienica inclusi</li>
 					</ul>
 				</div>
+			</div>
+		</div>
+	</section>
 
-				<div class="col-md-6 mb-4">
-					<h4 class="text-success mb-3">⚡ Servizi e Connettività</h4>
-					<ul class="list-unstyled">
-						<li class="mb-2">📶 <strong>WiFi gratuito veloce</strong></li>
-						<li class="mb-2">❄️ <strong>Aria condizionata</strong></li>
-						<li class="mb-2">🔥 <strong>Riscaldamento</strong></li>
-						<li class="mb-2">🛗 <strong>Ascensore</strong></li>
-						<li class="mb-2">🚭 <strong>Struttura non fumatori</strong></li>
-						<li class="mb-2">💼 <strong>Scrivania</strong> per lavoro</li>
-					</ul>
+	<!-- Servizi -->
+	<section id="services" class="py-5 bg-light">
+		<div class="container">
+			<h2 class="mb-4 text-center">Servizi Inclusi</h2>
+			<div class="row">
+				<div class="col-md-3 text-center mb-3">
+					<h5>📶 Internet</h5>
+					<p>WiFi veloce gratuito<br></p>
+				</div>
+				<div class="col-md-3 text-center mb-3">
+					<h5>❄️🔥 Climatizzazione</h5>
+					<p>Aria condizionata<br>e riscaldamento</p>
+				</div>
+				<div class="col-md-3 text-center mb-3">
+					<h5>🍳 Cucina</h5>
+					<p>Completamente attrezzata<br>con bollitore</p>
+				</div>
+				<div class="col-md-3 text-center mb-3">
+					<h5>📺 Intrattenimento</h5>
+					<p>TV a schermo piatto<br>nel soggiorno</p>
+				</div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-md-3 text-center mb-3">
+					<h5>🛗 Comodità</h5>
+					<p>Ascensore<br>disponibile</p>
+				</div>
+				<div class="col-md-3 text-center mb-3">
+					<h5>🚿 Bagno</h5>
+					<p>Asciugacapelli<br>e asciugamani</p>
+				</div>
+				<div class="col-md-3 text-center mb-3">
+					<h5>💼 Lavoro</h5>
+					<p>Scrivania<br>in camera</p>
+				</div>
+				<div class="col-md-3 text-center mb-3">
+					<h5>🗣️ Lingue</h5>
+					<p>Inglese<br>e Italiano</p>
 				</div>
 			</div>
 		</div>
@@ -167,7 +198,7 @@
 	<section id="location" class="py-5 bg-white">
 		<div class="container">
 			<h2 class="mb-4 text-center">Posizione e Dintorni</h2>
-			
+
 			<div class="row">
 				<div class="col-md-6 mb-4">
 					<h4 class="text-primary mb-3">🏛️ Attrazioni Principali</h4>
@@ -269,8 +300,8 @@
 			const navbarCollapse = document.querySelector('#navbarNav');
 			const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 
-			navLinks.forEach(function(link) {
-				link.addEventListener('click', function() {
+			navLinks.forEach(function (link) {
+				link.addEventListener('click', function () {
 					// Verifica se il menu è aperto (visibile)
 					if (navbarCollapse.classList.contains('show')) {
 						// Chiude il menu mobile
@@ -334,7 +365,8 @@
 						<li class="mb-2">� <strong>Ciabatte monouso fornite per la camera</strong></li>
 						<li class="mb-2">🧳 <strong>Attenzione a non trascinare valigie sul parquet</strong></li>
 						<li class="mb-2">🌍 <strong>Uso responsabile di acqua ed elettricità</strong></li>
-						<li class="mb-2">🔑 <strong>Attenzione alle chiavi - sostituzione serratura a carico ospite</strong></li>
+						<li class="mb-2">🔑 <strong>Attenzione alle chiavi - sostituzione serratura a carico
+								ospite</strong></li>
 						<li class="mb-2">⚠️ <strong>Comunicare immediatamente danni o incidenti</strong></li>
 					</ul>
 
@@ -347,216 +379,175 @@
 		</div>
 	</section>
 
-		<!-- Servizi -->
-		<section id="services" class="py-5 bg-light">
-			<div class="container">
-				<h2 class="mb-4 text-center">Servizi Inclusi</h2>
-				<div class="row">
-					<div class="col-md-3 text-center mb-3">
-						<h5>📶 Internet</h5>
-						<p>WiFi veloce gratuito<br>343 Mbps</p>
-					</div>
-					<div class="col-md-3 text-center mb-3">
-						<h5>❄️ Climatizzazione</h5>
-						<p>Aria condizionata<br>e riscaldamento</p>
-					</div>
-					<div class="col-md-3 text-center mb-3">
-						<h5>🍳 Cucina</h5>
-						<p>Completamente attrezzata<br>con bollitore</p>
-					</div>
-					<div class="col-md-3 text-center mb-3">
-						<h5>📺 Intrattenimento</h5>
-						<p>TV a schermo piatto<br>nel soggiorno</p>
-					</div>
-				</div>
-				<div class="row mt-3">
-					<div class="col-md-3 text-center mb-3">
-						<h5>🛗 Comodità</h5>
-						<p>Ascensore<br>disponibile</p>
-					</div>
-					<div class="col-md-3 text-center mb-3">
-						<h5>🚿 Bagno</h5>
-						<p>Asciugacapelli<br>e asciugamani</p>
-					</div>
-					<div class="col-md-3 text-center mb-3">
-						<h5>� Lavoro</h5>
-						<p>Scrivania<br>in camera</p>
-					</div>
-					<div class="col-md-3 text-center mb-3">
-						<h5>🗣️ Lingue</h5>
-						<p>Inglese<br>e Italiano</p>
-					</div>
+	<!-- Recensioni -->
+	<section id="reviews" class="py-5 bg-white">
+		<div class="container">
+			<h2 class="mb-4 text-center">Recensioni</h2>
+			<blockquote class="blockquote text-center">
+				<p class="mb-0">“Pulizia impeccabile e posizione perfetta”</p>
+				<footer class="blockquote-footer">Valutazione: 9.5/10 su Booking</footer>
+			</blockquote>
+		</div>
+	</section>
+
+	<!-- Scopri Bologna -->
+	<section id="explore" class="py-5 bg-light">
+		<div class="container">
+			<h2 class="mb-4 text-center">Nel Cuore del Centro Storico</h2>
+			<div class="row justify-content-center">
+				<div class="col-md-8 text-center">
+					<p class="lead">📍 Avesella House si trova nel centro storico di Bologna, circondato da palazzi
+						storici e a pochi passi dalle principali attrazioni della città.</p>
 				</div>
 			</div>
-		</section>
 
-		<!-- Recensioni -->
-		<section id="reviews" class="py-5 bg-white">
-			<div class="container">
-				<h2 class="mb-4 text-center">Recensioni</h2>
-				<blockquote class="blockquote text-center">
-					<p class="mb-0">“Pulizia impeccabile e posizione perfetta”</p>
-					<footer class="blockquote-footer">Valutazione: 9.5/10 su Booking</footer>
-				</blockquote>
-			</div>
-		</section>
-
-		<!-- Scopri Bologna -->
-		<section id="explore" class="py-5 bg-light">
-			<div class="container">
-				<h2 class="mb-4 text-center">Nel Cuore del Centro Storico</h2>
-				<div class="row justify-content-center">
-					<div class="col-md-8 text-center">
-						<p class="lead">📍 Avesella House si trova nel centro storico di Bologna, circondato da palazzi storici e a pochi passi dalle principali attrazioni della città.</p>
-					</div>
+			<div class="row mt-4">
+				<div class="col-md-4 text-center mb-3">
+					<h5>🏛️ Arte e Cultura</h5>
+					<p>Palazzo Fava, Mambo Museo, Piazza Maggiore e Pinacoteca Nazionale facilmente raggiungibili a
+						piedi</p>
 				</div>
-				
-				<div class="row mt-4">
-					<div class="col-md-4 text-center mb-3">
-						<h5>🏛️ Arte e Cultura</h5>
-						<p>Palazzo Fava, Mambo Museo, Piazza Maggiore e Pinacoteca Nazionale facilmente raggiungibili a piedi</p>
-					</div>
-					<div class="col-md-4 text-center mb-3">
-						<h5>🛍️ Shopping</h5>
-						<p>Via dell'Indipendenza a soli 300 metri per shopping e passeggiate nel centro</p>
-					</div>
-					<div class="col-md-4 text-center mb-3">
-						<h5>🚂 Trasporti</h5>
-						<p>Stazione Centrale a 850m, perfetto per chi arriva in treno</p>
-					</div>
+				<div class="col-md-4 text-center mb-3">
+					<h5>🛍️ Shopping</h5>
+					<p>Via dell'Indipendenza a soli 300 metri per shopping e passeggiate nel centro</p>
+				</div>
+				<div class="col-md-4 text-center mb-3">
+					<h5>🚂 Trasporti</h5>
+					<p>Stazione Centrale a 850m, perfetto per chi arriva in treno</p>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<!-- FAQ -->
-		<section id="faq" class="py-5 bg-white">
-			<div class="container">
-				<h2 class="mb-4 text-center">Domande Frequenti</h2>
-				<div class="row">
-					<div class="col-md-6">
-						<h5><strong>🅿️ Dove posso parcheggiare?</strong></h5>
-						<p>Ci sono parcheggi a pagamento pubblici nel centro storico.</p>
-						
-						<h5><strong>📶 Il WiFi è incluso?</strong></h5>
-						<p>Sì, WiFi veloce gratuito da 343 Mbps disponibile in tutto l'appartamento.</p>
+	<!-- FAQ -->
+	<section id="faq" class="py-5 bg-white">
+		<div class="container">
+			<h2 class="mb-4 text-center">Domande Frequenti</h2>
+			<div class="row">
+				<div class="col-md-6">
+					<h5><strong>🅿️ Dove posso parcheggiare?</strong></h5>
+					<p>Ci sono parcheggi a pagamento pubblici nel centro storico.</p>
 
-						<h5><strong>❄️ C'è l'aria condizionata?</strong></h5>
-						<p>Sì, l'appartamento è dotato di aria condizionata e riscaldamento.</p>
-					</div>
-					<div class="col-md-6">
-						<h5><strong>🛗 C'è l'ascensore?</strong></h5>
-						<p>Sì, l'edificio storico del 1890 è dotato di ascensore.</p>
+					<h5><strong>📶 Il WiFi è incluso?</strong></h5>
+					<p>Sì, WiFi veloce gratuito da 343 Mbps disponibile in tutto l'appartamento.</p>
 
-						<h5><strong>👶 Posso venire con bambini?</strong></h5>
-						<p>I bambini di tutte le età sono benvenuti. Non sono disponibili culle o letti aggiuntivi.</p>
+					<h5><strong>❄️ C'è l'aria condizionata?</strong></h5>
+					<p>Sì, l'appartamento è dotato di aria condizionata e riscaldamento.</p>
+				</div>
+				<div class="col-md-6">
+					<h5><strong>🛗 C'è l'ascensore?</strong></h5>
+					<p>Sì, l'edificio storico del 1890 è dotato di ascensore.</p>
 
-						<h5><strong>🐕 Posso portare animali?</strong></h5>
-						<p>No, gli animali non sono ammessi nell'appartamento.</p>
-					</div>
+					<h5><strong>👶 Posso venire con bambini?</strong></h5>
+					<p>I bambini di tutte le età sono benvenuti. Non sono disponibili culle o letti aggiuntivi.</p>
+
+					<h5><strong>🐕 Posso portare animali?</strong></h5>
+					<p>No, gli animali non sono ammessi nell'appartamento.</p>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<!-- Contatti -->
-		<section id="contacts" class="py-5 bg-light">
-			<div class="container text-center">
-				<h2 class="mb-4">Contatti</h2>
-				<div class="row justify-content-center">
-					<div class="col-md-6">
-						<p>📧 <strong>Email:</strong> info@avesella.it</p>
-						<p>📱 <strong>Telefono:</strong> +39 333 123 4567</p>
-						<p>🗣️ <strong>Lingue parlate:</strong> Italiano, Inglese</p>
-					</div>
-				</div>
-				<div class="ratio ratio-16x9 mt-4">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen></iframe>
+	<!-- Contatti -->
+	<section id="contacts" class="py-5 bg-light">
+		<div class="container text-center">
+			<h2 class="mb-4">Contatti</h2>
+			<div class="row justify-content-center">
+				<div class="col-md-6">
+					<p>📧 <strong>Email:</strong> info@avesella.it</p>
+					<p>📱 <strong>Telefono:</strong> +39 333 123 4567</p>
+					<p>🗣️ <strong>Lingue parlate:</strong> Italiano, Inglese</p>
 				</div>
 			</div>
-		</section>
+			<div class="ratio ratio-16x9 mt-4">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen></iframe>
+			</div>
+		</div>
+	</section>
 
-		<!-- Footer -->
-		<footer class="bg-dark text-light text-center py-3">
-			<p class="mb-0">&copy; 2025 Avesella House - Appartamento nel centro storico di Bologna</p>
-		</footer>
+	<!-- Footer -->
+	<footer class="bg-dark text-light text-center py-3">
+		<p class="mb-0">&copy; 2025 Avesella House - Appartamento nel centro storico di Bologna</p>
+	</footer>
 
-		<!-- JS -->
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-		<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
-		<script>
-			// Fix per l'altezza del carosello - forza le dimensioni via JavaScript
-			function fixCarouselHeight() {
-				const carousel = document.getElementById('propertyCarousel');
-				if (!carousel) return;
+	<!-- JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+	<script>
+		// Fix per l'altezza del carosello - forza le dimensioni via JavaScript
+		function fixCarouselHeight() {
+			const carousel = document.getElementById('propertyCarousel');
+			if (!carousel) return;
 
-				const carouselInner = carousel.querySelector('.carousel-inner');
-				const carouselItems = carousel.querySelectorAll('.carousel-item');
-				const carouselImages = carousel.querySelectorAll('.carousel-item img');
+			const carouselInner = carousel.querySelector('.carousel-inner');
+			const carouselItems = carousel.querySelectorAll('.carousel-item');
+			const carouselImages = carousel.querySelectorAll('.carousel-item img');
 
-				// Determina l'altezza in base alla dimensione dello schermo
-				let targetHeight = '350px';
-				if (window.innerWidth <= 768) {
-					targetHeight = '250px';
-				} else if (window.innerWidth <= 992) {
-					targetHeight = '300px';
-				}
-
-				// Forza l'altezza solo degli elementi di contenuto, non dei controlli
-				if (carouselInner) {
-					carouselInner.style.height = targetHeight;
-				}
-
-				carouselItems.forEach(item => {
-					item.style.height = targetHeight;
-					item.style.overflow = 'hidden';
-				});
-
-				carouselImages.forEach(img => {
-					img.style.height = targetHeight;
-					img.style.objectFit = 'cover';
-					img.style.objectPosition = 'center';
-				});
+			// Determina l'altezza in base alla dimensione dello schermo
+			let targetHeight = '350px';
+			if (window.innerWidth <= 768) {
+				targetHeight = '250px';
+			} else if (window.innerWidth <= 992) {
+				targetHeight = '300px';
 			}
 
-			// Applica il fix quando la pagina è caricata
-			document.addEventListener('DOMContentLoaded', function () {
-				// Aspetta che le immagini siano caricate prima di applicare il fix
-				const carousel = document.getElementById('propertyCarousel');
-				if (carousel) {
-					// Applica il fix dopo un breve delay
-					setTimeout(fixCarouselHeight, 200);
-
-					// Riapplica il fix quando si ridimensiona la finestra
-					window.addEventListener('resize', function () {
-						setTimeout(fixCarouselHeight, 100);
-					});
-
-					// Riapplica il fix solo DOPO il cambio slide (non durante)
-					carousel.addEventListener('slid.bs.carousel', function () {
-						setTimeout(fixCarouselHeight, 50);
-					});
-				}
-			});
-		</script>
-
-		<script>
-			// Aspettiamo che FullCalendar sia caricato prima di caricare calendar.js
-			function loadCalendarScript() {
-				console.log('Controllo FullCalendar...', typeof FullCalendar);
-				if (typeof FullCalendar !== 'undefined') {
-					console.log('FullCalendar trovato! Carico calendar.js');
-					const script = document.createElement('script');
-					script.src = 'js/calendar.js';
-					document.head.appendChild(script);
-				} else {
-					console.log('FullCalendar non ancora disponibile, riprovo...');
-					setTimeout(loadCalendarScript, 100);
-				}
+			// Forza l'altezza solo degli elementi di contenuto, non dei controlli
+			if (carouselInner) {
+				carouselInner.style.height = targetHeight;
 			}
-			// Aspettiamo che il DOM sia pronto
-			document.addEventListener('DOMContentLoaded', function () {
-				loadCalendarScript();
+
+			carouselItems.forEach(item => {
+				item.style.height = targetHeight;
+				item.style.overflow = 'hidden';
 			});
-		</script>
+
+			carouselImages.forEach(img => {
+				img.style.height = targetHeight;
+				img.style.objectFit = 'cover';
+				img.style.objectPosition = 'center';
+			});
+		}
+
+		// Applica il fix quando la pagina è caricata
+		document.addEventListener('DOMContentLoaded', function () {
+			// Aspetta che le immagini siano caricate prima di applicare il fix
+			const carousel = document.getElementById('propertyCarousel');
+			if (carousel) {
+				// Applica il fix dopo un breve delay
+				setTimeout(fixCarouselHeight, 200);
+
+				// Riapplica il fix quando si ridimensiona la finestra
+				window.addEventListener('resize', function () {
+					setTimeout(fixCarouselHeight, 100);
+				});
+
+				// Riapplica il fix solo DOPO il cambio slide (non durante)
+				carousel.addEventListener('slid.bs.carousel', function () {
+					setTimeout(fixCarouselHeight, 50);
+				});
+			}
+		});
+	</script>
+
+	<script>
+		// Aspettiamo che FullCalendar sia caricato prima di caricare calendar.js
+		function loadCalendarScript() {
+			console.log('Controllo FullCalendar...', typeof FullCalendar);
+			if (typeof FullCalendar !== 'undefined') {
+				console.log('FullCalendar trovato! Carico calendar.js');
+				const script = document.createElement('script');
+				script.src = 'js/calendar.js';
+				document.head.appendChild(script);
+			} else {
+				console.log('FullCalendar non ancora disponibile, riprovo...');
+				setTimeout(loadCalendarScript, 100);
+			}
+		}
+		// Aspettiamo che il DOM sia pronto
+		document.addEventListener('DOMContentLoaded', function () {
+			loadCalendarScript();
+		});
+	</script>
 </body>
 
 </html>
