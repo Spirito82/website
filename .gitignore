@@ -1,0 +1,22 @@
+# File di disponibilità con dati sensibili
+data/availability.json
+
+# File temporanei e di sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# File di log
+*.log
+
+# Directory node_modules (se dovessi usare npm in futuro)
+node_modules/
+
+# File di configurazione ambiente
+.env
+.env.local
+.env.production
+
+# File di backup
+*.bak
+*.backup
