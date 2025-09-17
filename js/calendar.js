@@ -11,9 +11,18 @@
 
 	// Carico disponibilità da JSON
 	async function loadAvailability() {
-		const res = await fetch('/data/availability.json', { cache: 'no-store' });
-		const json = await res.json();
-		return json.events || [];
+		try {
+			const res = await fetch('./data/availability.json', { cache: 'no-store' });
+			if (!res.ok) {
+				console.warn('File availability.json non trovato, uso dati vuoti');
+				return [];
+			}
+			const json = await res.json();
+			return json.events || [];
+		} catch (error) {
+			console.warn('Errore nel caricamento availability.json:', error);
+			return [];
+		}
 	}
 
 	function dateRangeToDates(startISO, endISO) {
