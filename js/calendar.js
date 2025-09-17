@@ -483,7 +483,7 @@
 	// Aggiungiamo istruzioni per l'utente
 	const instructionsEl = document.createElement('div');
 	instructionsEl.className = 'alert alert-info mt-3';
-	instructionsEl.innerHTML = '<strong>Come prenotare:</strong> <br>• <em>Click singolo</em>: Clicca su un giorno, poi su un altro per selezionare il periodo<br>• <em>Trascina</em>: Clicca e trascina per selezionare un periodo<br>• <strong>Minimo 2 giorni</strong>: Sono richieste prenotazioni di almeno due giorni consecutivi<br>• Puoi selezionare solo giorni liberi consecutivi';
+	instructionsEl.innerHTML = '<strong>Come prenotare:</strong> <br>• <em>Click singolo</em>: Clicca su un giorno, poi su un altro per selezionare il periodo<br>• <em>Trascina</em>: Clicca e trascina per selezionare un periodo<br><strong>Prenotazione valida:</strong> di almeno 2 giorni';
 	document.getElementById('calendar').parentNode.insertBefore(instructionsEl, document.getElementById('calendar').nextSibling);
 
 	// Stile per giorni prenotati e passati

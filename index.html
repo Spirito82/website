@@ -66,6 +66,119 @@
 				font-size: 25px;
 			}
 		}
+
+		/* Stili personalizzati per FullCalendar - riquadri più piccoli */
+		.fc-daygrid-day {
+			height: 45px !important;
+			min-height: 45px !important;
+		}
+
+		.fc-daygrid-day-frame {
+			min-height: 45px !important;
+		}
+
+		.fc-daygrid-day-number {
+			font-size: 12px;
+			padding: 2px;
+		}
+
+		.fc-daygrid-event {
+			font-size: 10px;
+			padding: 1px 2px;
+			margin: 1px;
+		}
+
+		.fc-event-title {
+			font-size: 10px;
+		}
+
+		/* Riduzione header del calendario */
+		.fc-toolbar {
+			margin-bottom: 15px;
+		}
+
+		.fc-toolbar-title,
+		h2.fc-toolbar-title {
+			font-size: 1em !important;
+		}
+
+		.fc-button,
+		.fc-today-button,
+		.fc-prev-button,
+		.fc-next-button,
+		.fc-button-primary {
+			padding: 3px 6px !important;
+			font-size: 12px !important;
+		}
+
+		/* Altezza calendario - forza visualizzazione completa */
+		#calendar {
+			min-height: 400px;
+		}
+
+		.fc-view-harness {
+			height: auto !important;
+			min-height: 350px !important;
+		}
+
+		.fc-daygrid {
+			height: auto !important;
+		}
+
+		/* Media query per mobile - calendario ancora più compatto */
+		@media (max-width: 768px) {
+			/* Forza altezza maggiore su mobile per evitare scroll interno */
+			#calendar {
+				min-height: 320px !important;
+			}
+
+			.fc-view-harness {
+				height: auto !important;
+				min-height: 280px !important;
+			}
+
+			.fc-daygrid {
+				height: auto !important;
+			}
+
+			.fc-scroller {
+				height: auto !important;
+				overflow: visible !important;
+			}
+
+			.fc-daygrid-day {
+				height: 35px !important;
+				min-height: 35px !important;
+			}
+
+			.fc-daygrid-day-frame {
+				min-height: 35px !important;
+			}
+
+			.fc-daygrid-day-number {
+				font-size: 11px;
+				padding: 1px;
+			}
+
+			.fc-daygrid-event {
+				font-size: 9px;
+				padding: 0px 2px;
+			}
+
+			.fc-toolbar-title,
+			h2.fc-toolbar-title {
+				font-size: 1.1em !important;
+			}
+
+			.fc-button,
+			.fc-today-button,
+			.fc-prev-button,
+			.fc-next-button,
+			.fc-button-primary {
+				padding: 2px 5px !important;
+				font-size: 14px !important;
+			}
+		}
 	</style>
 </head>
 
@@ -604,11 +717,11 @@
 				<div class="col-md-6">
 					<h4 class="text-primary mb-3">🕐 Orari e Check-in</h4>
 					<ul class="list-unstyled">
-						<li class="mb-2">� <strong>Arrivo:</strong> dalle 15:00 alle 18:00</li>
-						<li class="mb-2">� <strong>Comunicare in anticipo l'orario di arrivo</strong></li>
-						<li class="mb-2">� <strong>Partenza:</strong> entro le 11:00</li>
-						<li class="mb-2">� <strong>Bambini di tutte le età sono benvenuti</strong></li>
-						<li class="mb-2">� <strong>Nessuna età minima per il check-in</strong></li>
+						<li class="mb-2">🕐 <strong>Arrivo:</strong> dalle 15:00 alle 18:00</li>
+						<li class="mb-2">📞 <strong>Comunicare in anticipo l'orario di arrivo</strong></li>
+						<li class="mb-2">🕐 <strong>Partenza:</strong> entro le 11:00</li>
+						<li class="mb-2">👶 <strong>Bambini di tutte le età sono benvenuti</strong></li>
+						<li class="mb-2">🔞 <strong>Nessuna età minima per il check-in</strong></li>
 					</ul>
 
 					<h4 class="text-danger mb-3 mt-4">🚫 Non Consentito</h4>
@@ -616,7 +729,7 @@
 						<li class="mb-2">🚭 <strong>Fumare non è consentito</strong></li>
 						<li class="mb-2">🎉 <strong>Non è permesso organizzare feste/eventi</strong></li>
 						<li class="mb-2">🐕 <strong>Animali non ammessi</strong></li>
-						<li class="mb-2">�️ <strong>Candele e incenso non consentiti</strong></li>
+						<li class="mb-2">🕯️ <strong>Candele e incenso non consentiti</strong></li>
 						<li class="mb-2">🔊 <strong>Musica alta e feste vietate</strong></li>
 					</ul>
 				</div>
@@ -634,8 +747,7 @@
 						<li class="mb-2">� <strong>Ciabatte monouso fornite per la camera</strong></li>
 						<li class="mb-2">🧳 <strong>Attenzione a non trascinare valigie sul parquet</strong></li>
 						<li class="mb-2">🌍 <strong>Uso responsabile di acqua ed elettricità</strong></li>
-						<li class="mb-2">🔑 <strong>Attenzione alle chiavi - sostituzione serratura a carico
-								ospite</strong></li>
+						<li class="mb-2">🔑 <strong>Attenzione alle chiavi - sostituzione serratura a carico dell'ospite</strong></li></li>
 						<li class="mb-2">⚠️ <strong>Comunicare immediatamente danni o incidenti</strong></li>
 					</ul>
 
