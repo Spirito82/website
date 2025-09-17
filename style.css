@@ -208,23 +208,23 @@ div#propertyCarousel.carousel.slide {
   overflow: hidden !important;
   max-width: 100%;
   margin: 0 auto;
-  height: 350px !important;
-  min-height: 350px !important;
-  max-height: 350px !important;
+  height: 500px !important;
+  min-height: 500px !important;
+  max-height: 500px !important;
 }
 
 div#propertyCarousel .carousel-inner {
   border-radius: 15px;
-  height: 350px !important;
-  min-height: 350px !important;
-  max-height: 350px !important;
+  height: 500px !important;
+  min-height: 500px !important;
+  max-height: 500px !important;
   overflow: hidden !important;
 }
 
 div#propertyCarousel .carousel-item {
-  height: 350px !important;
-  min-height: 350px !important;
-  max-height: 350px !important;
+  height: 500px !important;
+  min-height: 500px !important;
+  max-height: 500px !important;
   overflow: hidden !important;
   display: flex !important;
   align-items: center !important;
@@ -234,9 +234,9 @@ div#propertyCarousel .carousel-item {
 
 div#propertyCarousel .carousel-item img {
   width: 100% !important;
-  height: 350px !important;
-  min-height: 350px !important;
-  max-height: 350px !important;
+  height: 500px !important;
+  min-height: 500px !important;
+  max-height: 500px !important;
   object-fit: cover !important;
   object-position: center !important;
   border-radius: 15px;
@@ -329,19 +329,19 @@ div#propertyCarousel .carousel-item img {
 /* Responsive */
 @media (max-width: 768px) {
   #propertyCarousel {
-    height: 250px !important;
+    height: 500px !important;
   }
   
   .carousel-item {
-    height: 250px !important;
-    min-height: 250px !important;
-    max-height: 250px !important;
+    height: 500px !important;
+    min-height: 500px !important;
+    max-height: 500px !important;
   }
   
   .carousel-item img {
-    height: 250px !important;
-    min-height: 250px !important;
-    max-height: 250px !important;
+    height: 500px !important;
+    min-height: 500px !important;
+    max-height: 500px !important;
   }
   
   .carousel-caption {
@@ -365,36 +365,36 @@ div#propertyCarousel .carousel-item img {
 
 @media (min-width: 769px) and (max-width: 1200px) {
   #propertyCarousel {
-    height: 300px !important;
+    height: 500px !important;
   }
   
   .carousel-item {
-    height: 300px !important;
-    min-height: 300px !important;
-    max-height: 300px !important;
+    height: 500px !important;
+    min-height: 500px !important;
+    max-height: 500px !important;
   }
   
   .carousel-item img {
-    height: 300px !important;
-    min-height: 300px !important;
-    max-height: 300px !important;
+    height: 500px !important;
+    min-height: 500px !important;
+    max-height: 500px !important;
   }
 }
 
 @media (min-width: 1201px) {
   #propertyCarousel {
-    height: 350px !important;
+    height: 500px !important;
   }
   
   .carousel-item {
-    height: 350px !important;
-    min-height: 350px !important;
-    max-height: 350px !important;
+    height: 500px !important;
+    min-height: 500px !important;
+    max-height: 500px !important;
   }
   
   .carousel-item img {
-    height: 350px !important;
-    min-height: 350px !important;
-    max-height: 350px !important;
+    height: 500px !important;
+    min-height: 500px !important;
+    max-height: 500px !important;
   }
 }

@@ -4,11 +4,69 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>B&B Luxury Bologna</title>
+		<title>Avesella House - Appartamento nel centro storico di Bologna</title>
 
 	<!-- CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/main.min.css' rel='stylesheet'>
+	<link href="style.css" rel="stylesheet">
+	
+	<style>
+		/* Pulsante WhatsApp fisso */
+		.whatsapp-float {
+			position: fixed;
+			width: 60px;
+			height: 60px;
+			bottom: 40px;
+			right: 40px;
+			z-index: 1000;
+		}
+
+		.whatsapp-button {
+			width: 60px;
+			height: 60px;
+			line-height: 60px;
+			text-align: center;
+			font-size: 30px;
+			background-color: #25d366;
+			color: white;
+			border-radius: 50px;
+			text-decoration: none;
+			display: block;
+			box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+			transition: all 0.3s ease;
+		}
+
+		.whatsapp-button:hover {
+			background-color: #128c7e;
+			color: white;
+			text-decoration: none;
+			transform: scale(1.1);
+			box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.4);
+		}
+
+		.whatsapp-button:focus {
+			color: white;
+			text-decoration: none;
+		}
+
+		/* Responsive per mobile */
+		@media (max-width: 768px) {
+			.whatsapp-float {
+				bottom: 20px;
+				right: 20px;
+				width: 50px;
+				height: 50px;
+			}
+			
+			.whatsapp-button {
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				font-size: 25px;
+			}
+		}
+	</style>
 </head>
 
 <body>
@@ -24,10 +82,10 @@
 					<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="#gallery">Foto</a></li>
 					<li class="nav-item"><a class="nav-link" href="#features">Appartamento</a></li>
+					<li class="nav-item"><a class="nav-link" href="#services">Servizi</a></li>
 					<li class="nav-item"><a class="nav-link" href="#location">Posizione</a></li>
 					<li class="nav-item"><a class="nav-link" href="#availability">Disponibilità</a></li>
 					<li class="nav-item"><a class="nav-link" href="#rules">Regole</a></li>
-					<li class="nav-item"><a class="nav-link" href="#services">Servizi</a></li>
 					<li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
 					<li class="nav-item"><a class="nav-link" href="#contacts">Contatti</a></li>
 				</ul>
@@ -74,25 +132,35 @@
 				<div class="carousel-inner">
 					<div class="carousel-item active">
 						<img src="images/1.jpg" class="d-block w-100 rounded clickable-image"
-							alt="Camera da letto principale" data-title="Camera da letto principale"
-							data-description="Ambiente elegante e confortevole per il vostro soggiorno."
-							style="cursor: pointer;">
-						<div class="carousel-caption d-none d-md-block">
-							<h5>Camera da letto principale</h5>
-							<p>Ambiente elegante e confortevole per il vostro soggiorno.</p>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<img src="images/2.jpg" class="d-block w-100 rounded clickable-image" alt="Soggiorno"
-							data-title="Soggiorno" data-description="Spazio luminoso e accogliente per rilassarsi."
+							alt="Soggiorno" data-title="Soggiorno"
+							data-description="Ambiente elegante, pulito e confortevole."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
 							<h5>Soggiorno</h5>
-							<p>Spazio luminoso e accogliente per rilassarsi.</p>
+							<p>Ambiente elegante, pulito e confortevole.</p>
+						</div>
+					</div>
+					<div class="carousel-item active">
+						<img src="images/2.jpg" class="d-block w-100 rounded clickable-image"
+							alt="Soggiorno" data-title="Soggiorno"
+							data-description="Confortevole per il vostro soggiorno."
+							style="cursor: pointer;">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>Soggiorno</h5>
+							<p>Confortevole per il vostro soggiorno.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img src="images/3.jpg" class="d-block w-100 rounded clickable-image" alt="Cucina"
+						<img src="images/3.jpg" class="d-block w-100 rounded clickable-image" alt="Zona Pranzo"
+							data-title="Zona Pranzo" data-description="Ampio spazio luminoso e accogliente."
+							style="cursor: pointer;">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>Zona Pranzo</h5>
+							<p>Ampio spazio luminoso e accogliente.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="images/4.jpg" class="d-block w-100 rounded clickable-image" alt="Cucina"
 							data-title="Cucina" data-description="Moderna e completamente attrezzata per ogni esigenza."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
@@ -101,12 +169,93 @@
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img src="images/4.jpg" class="d-block w-100 rounded clickable-image" alt="Bagno"
-							data-title="Bagno" data-description="Elegante e funzionale con tutti i comfort."
+						<img src="images/5.jpg" class="d-block w-100 rounded clickable-image" alt="Camera"
+							data-title="Camera" data-description="Spaziosa, elegante, accogliente e con tutti i comfort."
+							style="cursor: pointer;">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>Camera da letto</h5>
+							<p>Spaziosa, elegante, accogliente e con tutti i comfort.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="images/6.jpg" class="d-block w-100 rounded clickable-image" alt="Camera"
+							data-title="Camera" data-description="Attrezzata con cuscini e coperte aggiuntive per ogni esigenza."
+							style="cursor: pointer;">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>Camera</h5>
+							<p>Attrezzata con cuscini e coperte aggiuntive per ogni esigenza.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="images/7.jpg" class="d-block w-100 rounded clickable-image" alt="Bagno"
+							data-title="Bagno" data-description="Pulito, moderno e funzionale."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
 							<h5>Bagno</h5>
+							<p>Pulito, moderno e funzionale.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="images/8.jpg" class="d-block w-100 rounded clickable-image" alt="Bagno"
+							data-title="Bagno" data-description="Pulito, moderno e funzionale."
+							style="cursor: pointer;">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>Bagno</h5>
+							<p>Pulito, moderno e funzionale.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="images/9.jpg" class="d-block w-100 rounded clickable-image" alt="Bagno"
+							data-title="Bagno" data-description="Pulito, moderno e funzionale."
+							style="cursor: pointer;">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>Bagno</h5>
+							<p>Pulito, moderno e funzionale.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="images/10.jpg" class="d-block w-100 rounded clickable-image" alt="Camera"
+							data-title="Camera" data-description="Elegante e funzionale con tutti i comfort."
+							style="cursor: pointer;">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>Camera</h5>
 							<p>Elegante e funzionale con tutti i comfort.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="images/10.jpg" class="d-block w-100 rounded clickable-image" alt="Ingresso"
+							data-title="Ingresso" data-description="Contesto signorile e raffinato."
+							style="cursor: pointer;">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>Ingresso</h5>
+							<p>Contesto signorile e raffinato.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="images/11.jpg" class="d-block w-100 rounded clickable-image" alt="Ascensore"
+							data-title="Ascensore" data-description="A disposizione ascensore con chiave."
+							style="cursor: pointer;">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>Ascensore</h5>
+							<p>A disposizione ascensore con chiave.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="images/13.jpg" class="d-block w-100 rounded clickable-image" alt="Portone"
+							data-title="Portone" data-description="Portone in legno."
+							style="cursor: pointer;">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>Portone</h5>
+							<p>Portone in legno.</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="images/13.jpg" class="d-block w-100 rounded clickable-image" alt="Portone"
+							data-title="Palazzo" data-description="Palazzo con portico."
+							style="cursor: pointer;">
+						<div class="carousel-caption d-none d-md-block">
+							<h5>Palazzo</h5>
+							<p>Palazzo con portico per protezione in caso di pioggia.</p>
 						</div>
 					</div>
 				</div>
@@ -126,95 +275,122 @@
 		</div>
 	</section>
 
-	<!-- Caratteristiche Appartamento -->
+	<!-- Appartamento -->
 	<section id="features" class="py-5 bg-light">
 		<div class="container">
 			<h2 class="mb-4 text-center">L'Appartamento</h2>
 			<div class="row justify-content-center mb-5">
-				<div class="col-md-8 text-center">
+				<div class="col-md-10 text-center">
 					<p class="lead">🏛️ Appartamento completo in edificio storico del 1890 nel centro di Bologna</p>
-					<p>📐 70 m² • 🛏️ 1 camera da letto • 🛁 1 bagno privato • 👥 Intero alloggio tutto per te</p>
+					<p>📐 70 m² • 🛏️ 1 camera da letto • 🛁 1 bagno privato • 👥 Intero alloggio per te</p>
 				</div>
 			</div>
 
-			<div class="row justify-content-center mb-5">
+			<div class="row justify-content-center">
 				<div class="col-md-8 text-center">
 					<h4 class="mb-4">🏠 Spazi</h4>
-					<ul class="list-unstyled d-inline-block text-start">
-						<li class="mb-2">🛏️ <strong>Camera da letto</strong> con scrivania e armadio</li>
-						<li class="mb-2">📺 <strong>Soggiorno</strong> con TV e divano</li>
-						<li class="mb-2">🍽️ <strong>Sala da pranzo con cucina</strong></li>
-						<li class="mb-2">🚿 <strong>Bagno privato</strong> con doccia, bidet e asciugacapelli</li>
-					</ul>
+					<div class="row">
+						<div class="col-md-3 text-center mb-3">
+							<h6>🍽️ Soggiorno</h6>
+							<p>TV<br>Divano</p>
+						</div>
+						<div class="col-md-3 text-center mb-3">
+							<h6>🍳 Cucina</h6>
+							<p>Fornelli<br>Frigo<br>Forno a microonde<br>Bollitore elettrico<br>Macchina del
+								caffè<br>Lavastoviglie</p>
+						</div>
+						<div class="col-md-3 text-center mb-3">
+							<h6>🛏️ Camera da letto</h6>
+							<p>Letto Matrimoniale<br>TV<br>Armadio<br>Scrivania</p>
+						</div>
+						<div class="col-md-3 text-center mb-3">
+							<h6>🚿 Bagno privato</h6>
+							<p>WC<br>Bidet<br>Doccia<br>Asciugamani<br>Asciugacapelli<br>Bagnoschiuma<br>Shampoo</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- Servizi -->
-	<section id="services" class="py-5 bg-light">
+	<section id="services" class="py-5 bg-white">
 		<div class="container">
 			<h2 class="mb-4 text-center">Servizi Inclusi</h2>
 			<div class="row">
-				<div class="col-md-3 text-center mb-3">
+				<div class="col-md-4 text-center mb-3">
 					<h5>📶 Internet</h5>
 					<p>WiFi veloce gratuito<br></p>
 				</div>
-				<div class="col-md-3 text-center mb-3">
+				<div class="col-md-4 text-center mb-3">
 					<h5>❄️🔥 Climatizzazione</h5>
 					<p>Aria condizionata<br>e riscaldamento</p>
 				</div>
-				<div class="col-md-3 text-center mb-3">
-					<h5>🍳 Cucina</h5>
-					<p>Completamente attrezzata<br>con bollitore</p>
-				</div>
-				<div class="col-md-3 text-center mb-3">
+
+				<div class="col-md-4 text-center mb-3">
 					<h5>📺 Intrattenimento</h5>
-					<p>TV a schermo piatto<br>nel soggiorno</p>
+					<p>TV a schermo piatto<br>nel soggiorno e in camera</p>
 				</div>
-			</div>
-			<div class="row mt-3">
-				<div class="col-md-3 text-center mb-3">
+				<div class="col-md-4 text-center mb-3">
 					<h5>🛗 Comodità</h5>
-					<p>Ascensore<br>disponibile</p>
+					<p>Ascensore</p>
 				</div>
-				<div class="col-md-3 text-center mb-3">
-					<h5>🚿 Bagno</h5>
-					<p>Asciugacapelli<br>e asciugamani</p>
-				</div>
-				<div class="col-md-3 text-center mb-3">
+
+				<div class="col-md-4 text-center mb-3">
 					<h5>💼 Lavoro</h5>
-					<p>Scrivania<br>in camera</p>
+					<p>Scrivania</p>
 				</div>
-				<div class="col-md-3 text-center mb-3">
+				<div class="col-md-4 text-center mb-3">
 					<h5>🗣️ Lingue</h5>
-					<p>Inglese<br>e Italiano</p>
+					<p>Inglese<br>Italiano</p>
 				</div>
-			</div>
 		</div>
 	</section>
 
 	<!-- Posizione e Dintorni -->
-	<section id="location" class="py-5 bg-white">
+	<section id="location" class="py-5 bg-light">
 		<div class="container">
 			<h2 class="mb-4 text-center">Posizione e Dintorni</h2>
-
+			<div class="row justify-content-center">
+				<div class="col-md-8 text-center">
+					<p class="lead">Avesella House si trova nel centro storico di Bologna, circondato da palazzi
+						storici e a pochi passi dalle principali attrazioni della città.</p>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-4 text-center mb-3">
+					<h5>🏛️ Arte e Cultura</h5>
+					<p>Palazzo Fava, Mambo Museo, Piazza Maggiore e Pinacoteca Nazionale facilmente raggiungibili a
+						piedi</p>
+				</div>
+				<div class="col-md-4 text-center mb-3">
+					<h5>🛍️ Shopping</h5>
+					<p>Via dell'Indipendenza a soli 300 metri per shopping e passeggiate nel centro</p>
+				</div>
+				<div class="col-md-4 text-center mb-3">
+					<h5>🚂 Trasporti</h5>
+					<p>Stazione Centrale a 850m, perfetto per chi arriva in treno</p>
+				</div>
+			</div>
 			<div class="row">
-				<div class="col-md-6 mb-4">
+				<div class="col-md-4 text-center mb-4">
 					<h4 class="text-primary mb-3">🏛️ Attrazioni Principali</h4>
 					<ul class="list-unstyled">
+						<li class="mb-2">🎭 <strong>Teatro Arena del Sole</strong> - 230 m</li>
+						<li class="mb-2">⛲ <strong>Piazza dell'Otto Agosto</strong> - 300 m</li>
+						<li class="mb-2">🌳 <strong>Parco della Montagnola</strong> - 400 m</li>
+						<li class="mb-2">🎭 <strong>Teatro Manzoni</strong> - 500 m</li>
 						<li class="mb-2">🎨 <strong>Palazzo Fava</strong> - 500 m</li>
-						<li class="mb-2">🖼️ <strong>Mambo Museo di Arte Moderna</strong> - 550 m</li>
-						<li class="mb-2">🏛️ <strong>Piazza Maggiore</strong> - 850 m</li>
-						<li class="mb-2">⛲ <strong>Piazza del Nettuno</strong> - 900 m</li>
+						<li class="mb-2">🖼️ <strong>Museo Mambo</strong> - 550 m</li>
+						<li class="mb-2">⛲ <strong>Piazza Maggiore</strong> - 850 m</li>
 						<li class="mb-2">🎭 <strong>Macchina del Tempo</strong> - 900 m</li>
 						<li class="mb-2">🖼️ <strong>Pinacoteca Nazionale</strong> - 1,1 km</li>
 						<li class="mb-2">🌳 <strong>Giardini Margherita</strong> - 2,5 km</li>
 					</ul>
 				</div>
 
-				<div class="col-md-6 mb-4">
-					<h4 class="text-success mb-3">🏰 Palazzi Storici Nelle Vicinanze</h4>
+				<div class="col-md-4 text-center mb-4">
+					<h4 class="text-success mb-3">🏰 Palazzi Storici</h4>
 					<ul class="list-unstyled">
 						<li class="mb-2">🏛️ <strong>Palazzo Bonasoni</strong> - 150 m</li>
 						<li class="mb-2">🏛️ <strong>Palazzo Felicini</strong> - 150 m</li>
@@ -223,27 +399,21 @@
 						<li class="mb-2">🏠 <strong>Casa delle Tuate</strong> - 300 m</li>
 						<li class="mb-2">🏛️ <strong>Palazzo dal Monte</strong> - 300 m</li>
 						<li class="mb-2">🚪 <strong>Porta Govese</strong> - 400 m</li>
-						<li class="mb-2">🌳 <strong>Parco della Montagnola</strong> - 400 m</li>
+						<li class="mb-2">🏛️ <strong>Palazzo Faccetta Nera</strong> - 450 m</li>
+						<li class="mb-2">⛲ <strong>Statua del Nettuno</strong> - 900 m</li>
 					</ul>
 				</div>
-			</div>
 
-			<div class="row mt-4">
-				<div class="col-md-6 mb-4">
-					<h4 class="text-warning mb-3">🍽️ Ristoranti e Caffetterie</h4>
+				<div class="col-md-4 text-center mb-4">
+					<h4 class="text-info mb-3">🚌 Mezzi di Trasporto</h4>
+					<ul class="list-unstyled mb-4">
+						<li class="mb-2">🚂 <strong>Stazione Bologna Centrale</strong> - 850 m</li>
+						<li class="mb-2">✈️ <strong>Aeroporto Bologna Marconi</strong> - 7 km</li>
+					</ul><h4 class="text-warning mb-3">🍽️ Ristoranti</h4>
 					<ul class="list-unstyled">
 						<li class="mb-2">🍝 <strong>Trattoria Valerio</strong> - 10 m</li>
 						<li class="mb-2">🍽️ <strong>L'Altro Gusto</strong> - 200 m</li>
 						<li class="mb-2">🍕 <strong>Pistamentuccia</strong> - 200 m</li>
-					</ul>
-				</div>
-
-				<div class="col-md-6 mb-4">
-					<h4 class="text-info mb-3">🚌 Mezzi di Trasporto</h4>
-					<ul class="list-unstyled">
-						<li class="mb-2">🚂 <strong>Stazione Bologna Centrale</strong> - 850 m</li>
-						<li class="mb-2">✈️ <strong>Aeroporto Bologna Marconi</strong> - 7 km</li>
-						<li class="mb-2">🛍️ <strong>Via dell'Indipendenza</strong> - 300 m</li>
 					</ul>
 				</div>
 			</div>
@@ -265,6 +435,76 @@
 						<h5 id="modalImageTitle" class="text-white"></h5>
 						<p id="modalImageDescription" class="text-white-50"></p>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modale per la prenotazione -->
+	<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="bookingModalLabel">📅 Prenota il tuo soggiorno</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<!-- Informazioni sulla selezione -->
+					<div class="alert alert-info">
+						<h6>📅 Periodo Selezionato</h6>
+						<p id="modalSelectedPeriod" class="mb-2"></p>
+						<p id="modalSelectedPrice" class="mb-0 fw-bold"></p>
+					</div>
+
+					<!-- Form di prenotazione -->
+					<form id="bookingForm">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="guestName" class="form-label">Nome e Cognome *</label>
+									<input type="text" class="form-control" id="guestName" required>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="guestEmail" class="form-label">Email *</label>
+									<input type="email" class="form-control" id="guestEmail" required>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="guestPhone" class="form-label">Telefono</label>
+									<input type="tel" class="form-control" id="guestPhone">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="mb-3">
+									<label for="guestCount" class="form-label">Numero ospiti *</label>
+									<select class="form-control" id="guestCount" required>
+										<option value="">Seleziona...</option>
+										<option value="1">1 persona</option>
+										<option value="2">2 persone</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="guestMessage" class="form-label">Note aggiuntive</label>
+							<textarea class="form-control" id="guestMessage" rows="3" placeholder="Richieste speciali, orario di arrivo previsto, ecc."></textarea>
+						</div>
+						<div class="form-check mb-3">
+							<input class="form-check-input" type="checkbox" id="acceptTerms" required>
+							<label class="form-check-label" for="acceptTerms">
+								Accetto le <a href="#rules">regole della struttura</a> *
+							</label>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+					<button type="button" class="btn btn-primary" id="confirmBooking">Invia Richiesta</button>
 				</div>
 			</div>
 		</div>
@@ -316,10 +556,20 @@
 	</script>
 
 	<!-- Disponibilità -->
-	<section id="availability" class="py-5 bg-light">
+	<section id="availability" class="py-5 bg-white">
 		<div class="container">
 			<h2 class="mb-4 text-center">Disponibilità & Prezzi</h2>
 			<div id="calendar"></div>
+			
+			<!-- Informazioni sulla selezione -->
+			<div id="selectionInfo" class="mt-4 text-center" style="display: none;">
+				<div class="alert alert-info">
+					<h5>📅 Periodo Selezionato</h5>
+					<p id="selectedPeriod" class="mb-2"></p>
+					<p id="selectedPrice" class="mb-0 fw-bold"></p>
+				</div>
+			</div>
+			
 			<div class="text-center">
 				<button id="bookEmailBtn" class="btn btn-success">Prenota</button>
 			</div>
@@ -327,7 +577,7 @@
 	</section>
 
 	<!-- Regole -->
-	<section id="rules" class="py-5 bg-white">
+	<section id="rules" class="py-5 bg-light">
 		<div class="container">
 			<h2 class="mb-4 text-center">Regole e Informazioni</h2>
 
@@ -390,35 +640,6 @@
 		</div>
 	</section>
 
-	<!-- Scopri Bologna -->
-	<section id="explore" class="py-5 bg-light">
-		<div class="container">
-			<h2 class="mb-4 text-center">Nel Cuore del Centro Storico</h2>
-			<div class="row justify-content-center">
-				<div class="col-md-8 text-center">
-					<p class="lead">📍 Avesella House si trova nel centro storico di Bologna, circondato da palazzi
-						storici e a pochi passi dalle principali attrazioni della città.</p>
-				</div>
-			</div>
-
-			<div class="row mt-4">
-				<div class="col-md-4 text-center mb-3">
-					<h5>🏛️ Arte e Cultura</h5>
-					<p>Palazzo Fava, Mambo Museo, Piazza Maggiore e Pinacoteca Nazionale facilmente raggiungibili a
-						piedi</p>
-				</div>
-				<div class="col-md-4 text-center mb-3">
-					<h5>🛍️ Shopping</h5>
-					<p>Via dell'Indipendenza a soli 300 metri per shopping e passeggiate nel centro</p>
-				</div>
-				<div class="col-md-4 text-center mb-3">
-					<h5>🚂 Trasporti</h5>
-					<p>Stazione Centrale a 850m, perfetto per chi arriva in treno</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<!-- FAQ -->
 	<section id="faq" class="py-5 bg-white">
 		<div class="container">
@@ -457,6 +678,20 @@
 					<p>📧 <strong>Email:</strong> info@avesella.it</p>
 					<p>📱 <strong>Telefono:</strong> +39 333 123 4567</p>
 					<p>🗣️ <strong>Lingue parlate:</strong> Italiano, Inglese</p>
+					
+					<!-- Pulsanti di contatto -->
+					<div class="mt-4">
+						<a href="https://wa.me/393284636570?text=Ciao!%20Sono%20interessato%20ad%20Avesella%20House%20per%20una%20prenotazione." 
+						   class="btn btn-success btn-lg me-3 mb-2" 
+						   target="_blank" 
+						   rel="noopener noreferrer">
+						   <i class="fab fa-whatsapp"></i> 💬 Scrivici su WhatsApp
+						</a>
+						<a href="mailto:info@avesella.it?subject=Richiesta%20informazioni%20Avesella%20House" 
+						   class="btn btn-primary btn-lg mb-2">
+						   📧 Invia Email
+						</a>
+					</div>
 				</div>
 			</div>
 			<div class="ratio ratio-16x9 mt-4">
@@ -464,6 +699,17 @@
 			</div>
 		</div>
 	</section>
+
+	<!-- Pulsante WhatsApp fisso -->
+	<div class="whatsapp-float">
+		<a href="https://wa.me/393284636570?text=Ciao!%20Sono%20interessato%20ad%20Avesella%20House%20per%20una%20prenotazione." 
+		   target="_blank" 
+		   rel="noopener noreferrer"
+		   class="whatsapp-button"
+		   title="Scrivici su WhatsApp">
+		   💬
+		</a>
+	</div>
 
 	<!-- Footer -->
 	<footer class="bg-dark text-light text-center py-3">
@@ -484,11 +730,11 @@
 			const carouselImages = carousel.querySelectorAll('.carousel-item img');
 
 			// Determina l'altezza in base alla dimensione dello schermo
-			let targetHeight = '350px';
+			let targetHeight = '500px';
 			if (window.innerWidth <= 768) {
-				targetHeight = '250px';
+				targetHeight = '350px';
 			} else if (window.innerWidth <= 992) {
-				targetHeight = '300px';
+				targetHeight = '400px';
 			}
 
 			// Forza l'altezza solo degli elementi di contenuto, non dei controlli

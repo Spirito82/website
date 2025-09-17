@@ -333,9 +333,14 @@
 			const selectedPeriod = document.getElementById('selectedPeriod');
 			const selectedPrice = document.getElementById('selectedPrice');
 			
-			selectedPeriod.textContent = `Dal ${startFormatted} al ${endFormatted} (${dayCount} ${dayCount === 1 ? 'giorno' : 'giorni'})`;
-			selectedPrice.textContent = `Prezzo totale: €${totalPrice}`;
-			selectionInfoElement.style.display = 'block';
+			// Controlli di sicurezza per verificare che gli elementi esistano
+			if (selectedPeriod && selectedPrice && selectionInfoElement) {
+				selectedPeriod.textContent = `Dal ${startFormatted} al ${endFormatted} (${dayCount} ${dayCount === 1 ? 'giorno' : 'giorni'})`;
+				selectedPrice.textContent = `Prezzo totale: €${totalPrice}`;
+				selectionInfoElement.style.display = 'block';
+			} else {
+				console.warn('Elementi di selezione non trovati nell\'HTML');
+			}
 			
 			const btn = document.getElementById('bookEmailBtn');
 			btn.disabled = false;
@@ -356,7 +361,9 @@
 			
 			// Nasconde la label di selezione
 			const selectionInfoElement = document.getElementById('selectionInfo');
-			selectionInfoElement.style.display = 'none';
+			if (selectionInfoElement) {
+				selectionInfoElement.style.display = 'none';
+			}
 			
 			// Cancella click pendenti
 			if (clickTimer) {
@@ -531,42 +538,75 @@
 		const modalSelectedPeriod = document.getElementById('modalSelectedPeriod');
 		const modalSelectedPrice = document.getElementById('modalSelectedPrice');
 		
-		modalSelectedPeriod.textContent = `Dal ${startFormatted} al ${endFormatted} (${dayCount} ${dayCount === 1 ? 'giorno' : 'giorni'})`;
-		modalSelectedPrice.textContent = `Prezzo totale: €${totalPrice}`;
+		// Controlli di sicurezza per verificare che gli elementi esistano
+		if (modalSelectedPeriod && modalSelectedPrice) {
+			modalSelectedPeriod.textContent = `Dal ${startFormatted} al ${endFormatted} (${dayCount} ${dayCount === 1 ? 'giorno' : 'giorni'})`;
+			modalSelectedPrice.textContent = `Prezzo totale: €${totalPrice}`;
+		} else {
+			console.warn('Elementi modali non trovati nell\'HTML');
+		}
 		
 		// Pulisce il form
-		document.getElementById('bookingForm').reset();
+		const bookingForm = document.getElementById('bookingForm');
+		if (bookingForm) {
+			bookingForm.reset();
+		}
 		
 		// Mostra la modale
-		const modal = new bootstrap.Modal(document.getElementById('bookingModal'));
-		modal.show();
+		const bookingModal = document.getElementById('bookingModal');
+		if (bookingModal) {
+			const modal = new bootstrap.Modal(bookingModal);
+			modal.show();
+		} else {
+			console.warn('Modale di prenotazione non trovata nell\'HTML');
+		}
 		
 		// Gestisce il click sul bottone di conferma
 		const confirmBtn = document.getElementById('confirmBooking');
-		confirmBtn.onclick = function() {
-			sendBookingEmail(start, end, startFormatted, endFormatted, dayCount, totalPrice);
-		};
+		if (confirmBtn) {
+			confirmBtn.onclick = function() {
+				sendBookingEmail(start, end, startFormatted, endFormatted, dayCount, totalPrice);
+			};
+		} else {
+			console.warn('Pulsante di conferma non trovato nell\'HTML');
+		}
 	}
 
 	// Funzione per inviare l'email tramite EmailJS
 	async function sendBookingEmail(start, end, startFormatted, endFormatted, dayCount, totalPrice) {
-		// Raccogli i dati dal form
-		const name = document.getElementById('guestName').value.trim();
-		const email = document.getElementById('guestEmail').value.trim();
-		const phone = document.getElementById('guestPhone').value.trim();
-		const guestCount = document.getElementById('guestGuests').value;
-		const notes = document.getElementById('guestNotes').value.trim();
+		// Raccogli i dati dal form con controlli di sicurezza
+		const nameElement = document.getElementById('guestName');
+		const emailElement = document.getElementById('guestEmail');
+		const phoneElement = document.getElementById('guestPhone');
+		const guestCountElement = document.getElementById('guestCount');
+		const notesElement = document.getElementById('guestMessage');
+		const termsElement = document.getElementById('acceptTerms');
+		
+		if (!nameElement || !emailElement || !phoneElement || !guestCountElement || !notesElement || !termsElement) {
+			console.error('Alcuni elementi del form non sono stati trovati');
+			alert('Errore nel caricamento del form. Ricarica la pagina e riprova.');
+			return;
+		}
+		
+		const name = nameElement.value.trim();
+		const email = emailElement.value.trim();
+		const phone = phoneElement.value.trim();
+		const guestCount = guestCountElement.value;
+		const notes = notesElement.value.trim();
+		const acceptedTerms = termsElement.checked;
 		
 		// Validazione
-		if (!name || !email || !phone || !guestCount) {
-			alert('Compila tutti i campi obbligatori');
+		if (!name || !email || !guestCount || !acceptedTerms) {
+			alert('Compila tutti i campi obbligatori e accetta le regole della struttura');
 			return;
 		}
 		
 		// Mostra spinner
 		const confirmBtn = document.getElementById('confirmBooking');
-		confirmBtn.disabled = true;
-		confirmBtn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Invio in corso...';
+		if (confirmBtn) {
+			confirmBtn.disabled = true;
+			confirmBtn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Invio in corso...';
+		}
 		
 		try {
 			// Inizializza EmailJS (dovrai sostituire questi ID con i tuoi)
@@ -638,12 +678,19 @@
 			);
 			
 			window.location.href = 'mailto:emanuelesinagra@gmail.com?subject=' + subject + '&body=' + body;
-			const modal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
-			modal.hide();
+			const bookingModalElement = document.getElementById('bookingModal');
+			if (bookingModalElement) {
+				const modal = bootstrap.Modal.getInstance(bookingModalElement);
+				if (modal) {
+					modal.hide();
+				}
+			}
 		} finally {
 			// Reset del bottone
-			confirmBtn.disabled = false;
-			confirmBtn.innerHTML = 'Conferma Prenotazione';
+			if (confirmBtn) {
+				confirmBtn.disabled = false;
+				confirmBtn.innerHTML = 'Invia Richiesta';
+			}
 		}
 	}
 })();
