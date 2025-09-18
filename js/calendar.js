@@ -617,9 +617,43 @@
 			confirmBtn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Invio in corso...';
 		}
 		
+		// Controlla se EmailJS è disponibile
+		if (typeof emailjs === 'undefined') {
+			console.warn('EmailJS non disponibile, uso fallback mailto');
+			
+			// Crea email tramite mailto
+			const subject = encodeURIComponent('Richiesta Prenotazione - Avesella House');
+			const body = encodeURIComponent(
+				'Nuova richiesta di prenotazione per Avesella House\n\n' +
+				'Dettagli cliente:\n' +
+				'- Nome: ' + name + '\n' +
+				'- Email: ' + email + '\n' +
+				'- Telefono: ' + phone + '\n' +
+				'- Numero ospiti: ' + guestCount + '\n\n' +
+				'Dettagli soggiorno:\n' +
+				'- Check-in: ' + startFormatted + '\n' +
+				'- Check-out: ' + endFormatted + '\n' +
+				'- Durata: ' + dayCount + ' giorni\n' +
+				'- Prezzo totale: €' + totalPrice + '\n\n' +
+				'Note aggiuntive:\n' + (notes || 'Nessuna nota particolare')
+			);
+			
+			const mailtoLink = `mailto:emanuelesinagra@gmail.com?subject=${subject}&body=${body}`;
+			window.open(mailtoLink, '_blank');
+			
+			// Ripristina il pulsante
+			if (confirmBtn) {
+				confirmBtn.disabled = false;
+				confirmBtn.innerHTML = 'Conferma Prenotazione';
+			}
+			
+			alert('Si aprirà il tuo client email per inviare la richiesta di prenotazione.');
+			return;
+		}
+		
 		try {
 			// Inizializza EmailJS (dovrai sostituire questi ID con i tuoi)
-			emailjs.init("YOUR_PUBLIC_KEY"); // Sostituisci con la tua chiave pubblica
+			emailjs.init("PJ9Xm7lJ-770vJ1CV"); // Sostituisci con la tua chiave pubblica
 			
 			// Parametri per l'email
 			const templateParams = {
@@ -650,8 +684,8 @@
 			
 			// Invia l'email
 			const response = await emailjs.send(
-				'YOUR_SERVICE_ID', // Sostituisci con il tuo Service ID
-				'YOUR_TEMPLATE_ID', // Sostituisci con il tuo Template ID
+				'service_beb', // Sostituisci con il tuo Service ID
+				'template_xqemt0n', // Sostituisci con il tuo Template ID
 				templateParams
 			);
 			
