@@ -1,0 +1,148 @@
+/* Stili personalizzati per FullCalendar - riquadri più piccoli */
+.fc-daygrid-day,
+#calendar .fc-daygrid-day,
+.fc-view .fc-daygrid-day {
+	height: 60px !important;
+	min-height: 60px !important;
+	max-height: 60px !important;
+}
+
+.fc-daygrid-day-frame,
+#calendar .fc-daygrid-day-frame,
+.fc-view .fc-daygrid-day-frame {
+	min-height: 60px !important;
+	max-height: 60px !important;
+}
+
+.fc-daygrid-day-number {
+	font-size: 12px;
+	padding: 2px;
+}
+
+.fc-daygrid-event {
+	font-size: 10px;
+	padding: 1px 2px;
+	margin: 1px;
+}
+
+.fc-event-title {
+	font-size: 10px;
+}
+
+/* Riduzione header del calendario */
+.fc-toolbar {
+	margin-bottom: 15px;
+}
+
+.fc-toolbar-title,
+h2.fc-toolbar-title {
+	font-size: 1em !important;
+}
+
+.fc-button,
+.fc-today-button,
+.fc-prev-button,
+.fc-next-button,
+.fc-button-primary {
+	padding: 3px 6px !important;
+	font-size: 12px !important;
+}
+
+/* Altezza calendario - forza visualizzazione completa */
+#calendar {
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.fc-view-harness {
+	height: auto !important;
+	min-height: auto !important;
+	overflow: visible !important;
+}
+
+.fc-daygrid {
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.fc-scroller {
+	height: auto !important;
+	min-height: auto !important;
+	overflow: visible !important;
+}
+
+.fc-daygrid-body {
+	height: auto !important;
+	min-height: auto !important;
+	overflow: visible !important;
+}
+
+.fc-scrollgrid {
+	height: auto !important;
+	min-height: auto !important;
+}
+
+/* Media query per mobile - calendario ancora più compatto */
+@media (max-width: 768px) {
+	/* Rimuovi altezze fisse su mobile per evitare scroll interno */
+	#calendar {
+		height: auto !important;
+		min-height: auto !important;
+	}
+
+	.fc-view-harness {
+		height: auto !important;
+		min-height: auto !important;
+		overflow: visible !important;
+	}
+
+	.fc-daygrid {
+		height: auto !important;
+		min-height: auto !important;
+	}
+
+	.fc-scroller {
+		height: auto !important;
+		min-height: auto !important;
+		overflow: visible !important;
+	}
+
+	.fc-daygrid-day,
+	#calendar .fc-daygrid-day,
+	.fc-view .fc-daygrid-day {
+		height: 52px !important;
+		min-height: 52px !important;
+		max-height: 52px !important;
+	}
+
+	.fc-daygrid-day-frame,
+	#calendar .fc-daygrid-day-frame,
+	.fc-view .fc-daygrid-day-frame {
+		min-height: 52px !important;
+		max-height: 52px !important;
+	}
+
+	.fc-daygrid-day-number {
+		font-size: 11px;
+		padding: 1px;
+	}
+
+	.fc-daygrid-event {
+		font-size: 9px;
+		padding: 0px 2px;
+	}
+
+	.fc-toolbar-title,
+	h2.fc-toolbar-title {
+		font-size: 1.1em !important;
+	}
+
+	.fc-button,
+	.fc-today-button,
+	.fc-prev-button,
+	.fc-next-button,
+	.fc-button-primary {
+		padding: 2px 5px !important;
+		font-size: 14px !important;
+	}
+}

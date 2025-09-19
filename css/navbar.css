@@ -1,0 +1,28 @@
+/* Rimuove completamente l'animazione del menu mobile per chiusura istantanea */
+		.navbar-collapse {
+			transition: none !important;
+		}
+		
+		.navbar-collapse.collapsing {
+			transition: none !important;
+			height: auto !important;
+		}
+		
+		/* Rimuove anche le transizioni dei link */
+		.navbar-nav .nav-link {
+			transition: none !important;
+		}
+		
+		/* Fix per l'offset delle sezioni - scroll padding per compensare la navbar fissa */
+		section[id] {
+			scroll-margin-top: 10px; /* Altezza navbar + piccolo margine */
+		}
+		
+		/* Versione alternativa per browser più vecchi */
+		section[id]::before {
+			content: "";
+			display: block;
+			height: 10px;
+			margin-top: -10px;
+			visibility: hidden;
+		}

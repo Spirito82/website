@@ -1,8 +1,11 @@
 (async function () {
 
-	// Debug: verifichiamo se FullCalendar è disponibile
+	// Debug: verifichiamo se tutte le librerie sono disponibili
+	console.log('=== CONTROLLO LIBRERIE ALL\'AVVIO ===');
 	console.log('calendar.js: FullCalendar disponibile?', typeof FullCalendar);
+	console.log('calendar.js: EmailJS disponibile?', typeof emailjs);
 	console.log('calendar.js: Elemento calendar presente?', document.getElementById('calendar'));
+	console.log('=====================================');
 	
 	if (typeof FullCalendar === 'undefined') {
 		console.error('FullCalendar non è disponibile!');
@@ -257,6 +260,9 @@
 	const calendarEl = document.getElementById('calendar');
 	const calendar = new FullCalendar.Calendar(calendarEl, {
 		initialView: 'dayGridMonth',
+		height: 'auto',
+		contentHeight: 'auto',
+		expandRows: true,
 		selectable: true,
 		selectMirror: true,
 		unselectAuto: false,
@@ -431,6 +437,16 @@
 
 	calendar.render();
 
+	// Forza il ridimensionamento del calendario dopo il render
+	setTimeout(() => {
+		calendar.updateSize();
+	}, 100);
+
+	// Gestisce il ridimensionamento della finestra
+	window.addEventListener('resize', () => {
+		calendar.updateSize();
+	});
+
 	// Aggiungiamo gestori del mouse per distinguere click da drag
 	let mouseDownTime = null;
 	let mouseDownPos = null;
@@ -489,11 +505,6 @@
 		}, 10);
 	});
 
-	// Aggiungiamo istruzioni per l'utente
-	const instructionsEl = document.createElement('div');
-	instructionsEl.className = 'alert alert-info mt-3';
-	instructionsEl.innerHTML = '<strong>Come prenotare:</strong> <br>• <em>Click singolo</em>: Clicca su un giorno, poi su un altro per selezionare il periodo<br>• <em>Trascina</em>: Clicca e trascina per selezionare un periodo<br><strong>Prenotazione valida:</strong> di almeno 2 giorni';
-	document.getElementById('calendar').parentNode.insertBefore(instructionsEl, document.getElementById('calendar').nextSibling);
 
 	// Stile per giorni prenotati e passati
 	const style = document.createElement('style');
@@ -540,6 +551,17 @@
 			alert('Seleziona prima un periodo di almeno 2 giorni nel calendario');
 		}
 	});
+
+	// Funzione helper per mostrare toast
+	function showToast(toastId, delay = 500) {
+		setTimeout(() => {
+			const toastElement = document.getElementById(toastId);
+			if (toastElement) {
+				const toast = new bootstrap.Toast(toastElement);
+				toast.show();
+			}
+		}, delay);
+	}
 
 	// Funzione per mostrare il form di prenotazione
 	function showBookingForm(start, end, startFormatted, endFormatted, dayCount, totalPrice) {
@@ -618,12 +640,33 @@
 		}
 		
 		// Controlla se EmailJS è disponibile
+		console.log('=== DEBUG EMAILJS ===');
+		console.log('typeof emailjs:', typeof emailjs);
+		console.log('window.emailjs:', window.emailjs);
+		console.log('EmailJS disponibile?', typeof emailjs !== 'undefined');
+		console.log('=====================');
+		
 		if (typeof emailjs === 'undefined') {
-			console.warn('EmailJS non disponibile, uso fallback mailto');
+			console.log('Invio email tramite client predefinito');
 			
 			// Crea email tramite mailto
-			const subject = encodeURIComponent('Richiesta Prenotazione - Avesella House');
+			const subject = encodeURIComponent('Booking Request - Avesella House / Richiesta Prenotazione');
 			const body = encodeURIComponent(
+				'=== ENGLISH VERSION ===\n\n' +
+				'New booking request for Avesella House\n\n' +
+				'Guest Details:\n' +
+				'- Name: ' + name + '\n' +
+				'- Email: ' + email + '\n' +
+				'- Phone: ' + phone + '\n' +
+				'- Number of guests: ' + guestCount + '\n\n' +
+				'Stay Details:\n' +
+				'- Check-in: ' + startFormatted + '\n' +
+				'- Check-out: ' + endFormatted + '\n' +
+				'- Duration: ' + dayCount + ' days\n' +
+				'- Total price: €' + totalPrice + '\n\n' +
+				'Additional notes:\n' + (notes || 'No additional notes') + '\n\n' +
+				'========================================\n\n' +
+				'=== VERSIONE ITALIANA ===\n\n' +
 				'Nuova richiesta di prenotazione per Avesella House\n\n' +
 				'Dettagli cliente:\n' +
 				'- Nome: ' + name + '\n' +
@@ -638,7 +681,7 @@
 				'Note aggiuntive:\n' + (notes || 'Nessuna nota particolare')
 			);
 			
-			const mailtoLink = `mailto:emanuelesinagra@gmail.com?subject=${subject}&body=${body}`;
+			const mailtoLink = `mailto:emanuelesinagra@gmail.com,enzosinagra@gmail.com,${email}?subject=${subject}&body=${body}`;
 			window.open(mailtoLink, '_blank');
 			
 			// Ripristina il pulsante
@@ -647,7 +690,9 @@
 				confirmBtn.innerHTML = 'Conferma Prenotazione';
 			}
 			
-			alert('Si aprirà il tuo client email per inviare la richiesta di prenotazione.');
+			// Mostra toast informativo per mailto
+			showToast('errorToast', 100);
+			
 			return;
 		}
 		
@@ -658,6 +703,8 @@
 			// Parametri per l'email
 			const templateParams = {
 				to_email: 'emanuelesinagra@gmail.com',
+				to_email_2: 'enzosinagra@gmail.com',
+				to_email_guest: email, // Email dell'ospite
 				from_name: name,
 				from_email: email,
 				phone: phone,
@@ -666,9 +713,24 @@
 				check_out: endFormatted,
 				duration: dayCount,
 				total_price: totalPrice,
-				notes: notes || 'Nessuna nota particolare',
+				notes: notes || 'No additional notes / Nessuna nota particolare',
 				booking_dates: startFormatted + ' - ' + endFormatted,
-				message: 'Nuova richiesta di prenotazione per il B&B Luxury Bologna.\n\n' +
+				message: '=== ENGLISH VERSION ===\n\n' +
+					'New booking request for Avesella House\n\n' +
+					'Guest Details:\n' +
+					'- Name: ' + name + '\n' +
+					'- Email: ' + email + '\n' +
+					'- Phone: ' + phone + '\n' +
+					'- Number of guests: ' + guestCount + '\n\n' +
+					'Stay Details:\n' +
+					'- Check-in: ' + startFormatted + '\n' +
+					'- Check-out: ' + endFormatted + '\n' +
+					'- Duration: ' + dayCount + ' days\n' +
+					'- Total price: €' + totalPrice + '\n\n' +
+					'Additional notes: ' + (notes || 'No additional notes') + '\n\n' +
+					'========================================\n\n' +
+					'=== VERSIONE ITALIANA ===\n\n' +
+					'Nuova richiesta di prenotazione per Avesella House\n\n' +
 					'Dettagli cliente:\n' +
 					'- Nome: ' + name + '\n' +
 					'- Email: ' + email + '\n' +
@@ -691,21 +753,39 @@
 			
 			console.log('Email inviata con successo:', response);
 			
-			// Successo
-			alert('Prenotazione inviata con successo! Ti contatteremo presto per la conferma.');
+			// Chiudi la modale
 			const modal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
 			modal.hide();
 			
 			// Reset del calendario
 			calendar.unselect();
 			
+			// Mostra toast di successo
+			showToast('successToast', 500); // Delay per permettere alla modale di chiudersi
+			
 		} catch (error) {
 			console.error('Errore invio email:', error);
 			
 			// Fallback: apri il client email tradizionale
-			const subject = encodeURIComponent('Richiesta prenotazione - B&B Luxury Bologna - ' + startFormatted + ' - ' + endFormatted + ' (' + dayCount + ' giorni)');
+			const subject = encodeURIComponent('Booking Request - Avesella House / Richiesta Prenotazione - ' + startFormatted + ' - ' + endFormatted + ' (' + dayCount + ' days/giorni)');
 			const body = encodeURIComponent(
-				'Buongiorno,\n\nVorrei prenotare il B&B Luxury Bologna per il seguente periodo:\n\n' +
+				'=== ENGLISH VERSION ===\n\n' +
+				'Good morning,\n\nI would like to book Avesella House for the following period:\n\n' +
+				'• Check-in: ' + startFormatted + '\n' +
+				'• Check-out: ' + endFormatted + '\n' +
+				'• Duration: ' + dayCount + ' days\n' +
+				'• Total price: €' + totalPrice + '\n\n' +
+				'Booking details:\n' +
+				'• Name: ' + name + '\n' +
+				'• Email: ' + email + '\n' +
+				'• Phone: ' + phone + '\n' +
+				'• Number of guests: ' + guestCount + '\n' +
+				'• Notes: ' + (notes || 'None') + '\n\n' +
+				'Thank you for your availability.\n\n' +
+				'Best regards\n\n' +
+				'========================================\n\n' +
+				'=== VERSIONE ITALIANA ===\n\n' +
+				'Buongiorno,\n\nVorrei prenotare Avesella House per il seguente periodo:\n\n' +
 				'• Check-in: ' + startFormatted + '\n' +
 				'• Check-out: ' + endFormatted + '\n' +
 				'• Durata: ' + dayCount + ' giorni\n' +
@@ -720,7 +800,7 @@
 				'Cordiali saluti'
 			);
 			
-			window.location.href = 'mailto:emanuelesinagra@gmail.com?subject=' + subject + '&body=' + body;
+			window.location.href = 'mailto:emanuelesinagra@gmail.com,enzosinagra@gmail.com,' + encodeURIComponent(email) + '?subject=' + subject + '&body=' + body;
 			const bookingModalElement = document.getElementById('bookingModal');
 			if (bookingModalElement) {
 				const modal = bootstrap.Modal.getInstance(bookingModalElement);

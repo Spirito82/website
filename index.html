@@ -9,223 +9,91 @@
 	<!-- CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/main.min.css' rel='stylesheet'>
-	<link href="style.css" rel="stylesheet">
-	
-	<style>
-		/* Pulsante WhatsApp fisso */
-		.whatsapp-float {
-			position: fixed;
-			width: 60px;
-			height: 60px;
-			bottom: 40px;
-			right: 40px;
-			z-index: 1000;
-		}
-
-		.whatsapp-button {
-			width: 60px;
-			height: 60px;
-			line-height: 60px;
-			text-align: center;
-			font-size: 30px;
-			background-color: #25d366;
-			color: white;
-			border-radius: 50px;
-			text-decoration: none;
-			display: block;
-			box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
-			transition: all 0.3s ease;
-		}
-
-		.whatsapp-button:hover {
-			background-color: #128c7e;
-			color: white;
-			text-decoration: none;
-			transform: scale(1.1);
-			box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.4);
-		}
-
-		.whatsapp-button:focus {
-			color: white;
-			text-decoration: none;
-		}
-
-		/* Responsive per mobile */
-		@media (max-width: 768px) {
-			.whatsapp-float {
-				bottom: 20px;
-				right: 20px;
-				width: 50px;
-				height: 50px;
-			}
-			
-			.whatsapp-button {
-				width: 50px;
-				height: 50px;
-				line-height: 50px;
-				font-size: 25px;
-			}
-		}
-
-		/* Stili personalizzati per FullCalendar - riquadri più piccoli */
-		.fc-daygrid-day {
-			height: 45px !important;
-			min-height: 45px !important;
-		}
-
-		.fc-daygrid-day-frame {
-			min-height: 45px !important;
-		}
-
-		.fc-daygrid-day-number {
-			font-size: 12px;
-			padding: 2px;
-		}
-
-		.fc-daygrid-event {
-			font-size: 10px;
-			padding: 1px 2px;
-			margin: 1px;
-		}
-
-		.fc-event-title {
-			font-size: 10px;
-		}
-
-		/* Riduzione header del calendario */
-		.fc-toolbar {
-			margin-bottom: 15px;
-		}
-
-		.fc-toolbar-title,
-		h2.fc-toolbar-title {
-			font-size: 1em !important;
-		}
-
-		.fc-button,
-		.fc-today-button,
-		.fc-prev-button,
-		.fc-next-button,
-		.fc-button-primary {
-			padding: 3px 6px !important;
-			font-size: 12px !important;
-		}
-
-		/* Altezza calendario - forza visualizzazione completa */
-		#calendar {
-			min-height: 400px;
-		}
-
-		.fc-view-harness {
-			height: auto !important;
-			min-height: 350px !important;
-		}
-
-		.fc-daygrid {
-			height: auto !important;
-		}
-
-		/* Media query per mobile - calendario ancora più compatto */
-		@media (max-width: 768px) {
-			/* Forza altezza maggiore su mobile per evitare scroll interno */
-			#calendar {
-				min-height: 320px !important;
-			}
-
-			.fc-view-harness {
-				height: auto !important;
-				min-height: 280px !important;
-			}
-
-			.fc-daygrid {
-				height: auto !important;
-			}
-
-			.fc-scroller {
-				height: auto !important;
-				overflow: visible !important;
-			}
-
-			.fc-daygrid-day {
-				height: 35px !important;
-				min-height: 35px !important;
-			}
-
-			.fc-daygrid-day-frame {
-				min-height: 35px !important;
-			}
-
-			.fc-daygrid-day-number {
-				font-size: 11px;
-				padding: 1px;
-			}
-
-			.fc-daygrid-event {
-				font-size: 9px;
-				padding: 0px 2px;
-			}
-
-			.fc-toolbar-title,
-			h2.fc-toolbar-title {
-				font-size: 1.1em !important;
-			}
-
-			.fc-button,
-			.fc-today-button,
-			.fc-prev-button,
-			.fc-next-button,
-			.fc-button-primary {
-				padding: 2px 5px !important;
-				font-size: 14px !important;
-			}
-		}
-	</style>
+	<link href="css\style.css" rel="stylesheet">
+	<link href="css\calendar.css" rel="stylesheet">
+	<link href="css\whatsapp.css" rel="stylesheet">
+	<link href="css\navbar.css" rel="stylesheet">
 </head>
 
 <body>
+	<!-- Toast Container -->
+	<div class="toast-container position-fixed top-50 start-50 translate-middle p-3" style="z-index: 1060;">
+		<div id="successToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="6000">
+			<div class="toast-header bg-success text-white">
+				<i class="fas fa-check-circle me-2"></i>
+				<strong class="me-auto">Prenotazione Inviata</strong>
+				<button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+			<div class="toast-body">
+				<p class="mb-2"><strong>✅ Richiesta inviata con successo!</strong></p>
+				<p class="mb-2">📧 Ti arriverà una mail di riepilogo</p>
+				<p class="mb-0">📞 Ti contatteremo presto per la conferma</p>
+			</div>
+		</div>
+		
+		<div id="errorToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="8000">
+			<div class="toast-header bg-warning text-dark">
+				<i class="fas fa-exclamation-triangle me-2"></i>
+				<strong class="me-auto">Modalità Fallback</strong>
+				<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+			<div class="toast-body">
+				<p class="mb-2"><strong>📨 Email client aperto</strong></p>
+				<p class="mb-0">Invia manualmente l'email per completare la prenotazione</p>
+			</div>
+		</div>
+	</div>
 	<!-- Navbar -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#home">Avesella House</a>
+			<a class="navbar-brand" href="#home" data-i18n="navbar_brand">Avesella House</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav ms-auto">
-					<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="#gallery">Foto</a></li>
-					<li class="nav-item"><a class="nav-link" href="#features">Appartamento</a></li>
-					<li class="nav-item"><a class="nav-link" href="#services">Servizi</a></li>
-					<li class="nav-item"><a class="nav-link" href="#location">Posizione</a></li>
-					<li class="nav-item"><a class="nav-link" href="#availability">Disponibilità</a></li>
-					<li class="nav-item"><a class="nav-link" href="#rules">Regole</a></li>
-					<li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-					<li class="nav-item"><a class="nav-link" href="#contacts">Contatti</a></li>
+					<li class="nav-item"><a class="nav-link" href="#home" data-i18n="nav_home">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="#gallery" data-i18n="nav_gallery">Photos</a></li>
+					<li class="nav-item"><a class="nav-link" href="#features" data-i18n="nav_features">The Apartment</a></li>
+					<li class="nav-item"><a class="nav-link" href="#services" data-i18n="nav_services">Included Services</a></li>
+					<li class="nav-item"><a class="nav-link" href="#location" data-i18n="nav_location">Location</a></li>
+					<li class="nav-item"><a class="nav-link" href="#availability" data-i18n="nav_availability">Availability</a></li>
+					<li class="nav-item"><a class="nav-link" href="#rules" data-i18n="nav_rules">Rules</a></li>
+					<li class="nav-item"><a class="nav-link" href="#faq" data-i18n="nav_faq">FAQ</a></li>
+					<li class="nav-item"><a class="nav-link" href="#contacts" data-i18n="nav_contacts">Contacts</a></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
+	<!-- Language Switcher -->
+	<div id="lang-switcher" class="text-center py-2 bg-white border-bottom">
+		<button id="lang-en" class="btn btn-link p-0 mx-2" aria-label="English" style="font-size:2rem;">
+			<img src="https://cdn.jsdelivr.net/gh/hjnilsson/country-flags/svg/gb.svg" alt="English" width="32" height="24" style="vertical-align:middle;">
+		</button>
+		<button id="lang-it" class="btn btn-link p-0 mx-2" aria-label="Italiano" style="font-size:2rem;">
+			<img src="https://cdn.jsdelivr.net/gh/hjnilsson/country-flags/svg/it.svg" alt="Italiano" width="32" height="24" style="vertical-align:middle;">
+		</button>
+	</div>
+
 	<!-- Hero / Home -->
 	<section id="home" class="vh-100 d-flex align-items-center text-center bg-light">
 		<div class="container">
-			<h1 class="display-4 fw-bold">Avesella House</h1>
-			<p class="lead">Il tuo appartamento elegante nel centro storico di Bologna</p>
+			<h1 class="display-4 fw-bold" data-i18n="home_title">Avesella House</h1>
+			<p class="lead" data-i18n="home_subtitle">Your elegant apartment in the historic center of Bologna</p>
 			<div class="row justify-content-center mt-4">
 				<div class="col-md-8">
-					<p class="text-muted">📍 Posizionato al centro di Bologna, a 600 metri da Mambo Museo di Arte
-						Moderna e 300 metri da Via dell'Indipendenza. Appartamento completo con WiFi gratuito e aria
-						condizionata in edificio storico del 1890.</p>
+					<p class="text-muted" data-i18n="home_desc">📍 Located in the center of Bologna, 600 meters from Mambo Museum of Modern Art and 300 meters from Via dell'Indipendenza. Complete apartment with free WiFi and air conditioning in a historic 1890 building.</p>
 				</div>
 			</div>
-			<a href="#availability" class="btn btn-primary btn-lg mt-3">Prenota ora</a>
+			<a href="#availability" class="btn btn-primary btn-lg mt-3" data-i18n="home_book_btn">Book now</a>
 		</div>
 	</section>
 
 	<!-- Foto / Gallery -->
 	<section id="gallery" class="py-5 bg-white">
 		<div class="container">
-			<h2 class="mb-4 text-center">Foto</h2>
+			<h2 class="mb-4 text-center" data-i18n="gallery_title">Photos</h2>
 
 			<!-- Carousel/Slideshow -->
 			<div id="propertyCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -269,8 +137,8 @@
 							data-description="Ambiente elegante, pulito e confortevole."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Soggiorno</h5>
-							<p>Ambiente elegante, pulito e confortevole.</p>
+							<h5 data-i18n="gallery_living_title">Living Room</h5>
+							<p data-i18n="gallery_living_desc">Elegant, clean and comfortable environment.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -279,8 +147,8 @@
 							data-description="Confortevole per il vostro soggiorno."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Soggiorno</h5>
-							<p>Confortevole per il vostro soggiorno.</p>
+							<h5 data-i18n="gallery_living_title">Living Room</h5>
+							<p data-i18n="gallery_living_desc2">Comfortable for your stay.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -288,8 +156,8 @@
 							data-title="Zona Pranzo" data-description="Ampio spazio luminoso e accogliente."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Zona Pranzo</h5>
-							<p>Ampio spazio luminoso e accogliente.</p>
+							<h5 data-i18n="gallery_dining_title">Dining Area</h5>
+							<p data-i18n="gallery_dining_desc">Large, bright and welcoming space.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -297,8 +165,8 @@
 							data-title="Cucina" data-description="Moderna e completamente attrezzata per ogni esigenza."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Cucina</h5>
-							<p>Moderna e completamente attrezzata per ogni esigenza.</p>
+							<h5 data-i18n="gallery_kitchen_title">Kitchen</h5>
+							<p data-i18n="gallery_kitchen_desc">Modern and fully equipped for every need.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -306,8 +174,8 @@
 							data-title="Camera" data-description="Spaziosa, elegante, accogliente e con tutti i comfort."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Camera da letto</h5>
-							<p>Spaziosa, elegante, accogliente e con tutti i comfort.</p>
+							<h5 data-i18n="gallery_bedroom_title">Bedroom</h5>
+							<p data-i18n="gallery_bedroom_desc">Spacious, elegant, welcoming and with all comforts.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -315,8 +183,8 @@
 							data-title="Camera" data-description="Attrezzata con cuscini e coperte aggiuntive per ogni esigenza."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Camera</h5>
-							<p>Attrezzata con cuscini e coperte aggiuntive per ogni esigenza.</p>
+							<h5 data-i18n="gallery_bedroom_title">Bedroom</h5>
+							<p data-i18n="gallery_bedroom_desc2">Equipped with extra pillows and blankets for every need.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -324,8 +192,8 @@
 							data-title="Bagno" data-description="Pulito, moderno e funzionale."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Bagno</h5>
-							<p>Pulito, moderno e funzionale.</p>
+							<h5 data-i18n="gallery_bathroom_title">Bathroom</h5>
+							<p data-i18n="gallery_bathroom_desc">Clean, modern and functional.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -333,8 +201,8 @@
 							data-title="Bagno" data-description="Pulito, moderno e funzionale."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Bagno</h5>
-							<p>Pulito, moderno e funzionale.</p>
+							<h5 data-i18n="gallery_bathroom_title">Bathroom</h5>
+							<p data-i18n="gallery_bathroom_desc">Clean, modern and functional.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -342,8 +210,8 @@
 							data-title="Bagno" data-description="Pulito, moderno e funzionale."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Bagno</h5>
-							<p>Pulito, moderno e funzionale.</p>
+							<h5 data-i18n="gallery_bathroom_title">Bathroom</h5>
+							<p data-i18n="gallery_bathroom_desc">Clean, modern and functional.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -351,8 +219,8 @@
 							data-title="Camera" data-description="Elegante e funzionale con tutti i comfort."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Camera</h5>
-							<p>Elegante e funzionale con tutti i comfort.</p>
+							<h5 data-i18n="gallery_bedroom_title">Bedroom</h5>
+							<p data-i18n="gallery_bedroom_desc3">Elegant and functional with all comforts.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -360,8 +228,8 @@
 							data-title="Ingresso" data-description="Contesto signorile e raffinato."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Ingresso</h5>
-							<p>Contesto signorile e raffinato.</p>
+							<h5 data-i18n="gallery_entrance_title">Entrance</h5>
+							<p data-i18n="gallery_entrance_desc">Elegant and refined context.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -369,8 +237,8 @@
 							data-title="Ascensore" data-description="A disposizione ascensore con chiave."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Ascensore</h5>
-							<p>A disposizione ascensore con chiave.</p>
+							<h5 data-i18n="gallery_elevator_title">Elevator</h5>
+							<p data-i18n="gallery_elevator_desc">Elevator with key available.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -378,8 +246,8 @@
 							data-title="Portone" data-description="Portone in legno."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Portone</h5>
-							<p>Portone in legno.</p>
+							<h5 data-i18n="gallery_door_title">Main Door</h5>
+							<p data-i18n="gallery_door_desc">Wooden main door.</p>
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -387,8 +255,8 @@
 							data-title="Palazzo" data-description="Palazzo con portico per protezione in caso di pioggia."
 							style="cursor: pointer;">
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Palazzo</h5>
-							<p>Palazzo con portico per protezione in caso di pioggia.</p>
+							<h5 data-i18n="gallery_building_title">Building</h5>
+							<p data-i18n="gallery_building_desc">Building with portico for rain protection.</p>
 						</div>
 					</div>
 				</div>
@@ -411,34 +279,33 @@
 	<!-- Appartamento -->
 	<section id="features" class="py-5 bg-light">
 		<div class="container">
-			<h2 class="mb-4 text-center">L'Appartamento</h2>
+			<h2 class="mb-4 text-center" data-i18n="features_title">The Apartment</h2>
 			<div class="row justify-content-center mb-5">
 				<div class="col-md-10 text-center">
-					<p class="lead">🏛️ Appartamento completo in edificio storico del 1890 nel centro di Bologna</p>
-					<p>📐 70 m² • 🛏️ 1 camera da letto • 🛁 1 bagno privato • 👥 Intero alloggio per te</p>
+					<p class="lead" data-i18n="features_lead">🏛️ Complete apartment in a historic 1890 building in the center of Bologna</p>
+					<p data-i18n="features_details">📐 70 m² • 🛏️ 1 bedroom • 🛁 1 private bathroom • 👥 Entire accommodation for you</p>
 				</div>
 			</div>
 
 			<div class="row justify-content-center">
 				<div class="col-md-8 text-center">
-					<h4 class="mb-4">🏠 Spazi</h4>
+					<h4 class="mb-4" data-i18n="features_spaces">🏠 Spaces</h4>
 					<div class="row">
 						<div class="col-md-3 text-center mb-3">
-							<h6>🍽️ Soggiorno</h6>
-							<p>TV<br>Divano</p>
+							<h6 data-i18n="features_living">🍽️ Living Room</h6>
+							<p data-i18n="features_living_desc">TV<br>Sofa</p>
 						</div>
 						<div class="col-md-3 text-center mb-3">
-							<h6>🍳 Cucina</h6>
-							<p>Fornelli<br>Frigo<br>Forno a microonde<br>Bollitore elettrico<br>Macchina del
-								caffè<br>Lavastoviglie</p>
+							<h6 data-i18n="features_kitchen">🍳 Kitchen</h6>
+							<p data-i18n="features_kitchen_desc">Stove<br>Fridge<br>Microwave oven<br>Kettle<br>Coffee machine<br>Dishwasher</p>
 						</div>
 						<div class="col-md-3 text-center mb-3">
-							<h6>🛏️ Camera da letto</h6>
-							<p>Letto Matrimoniale<br>TV<br>Armadio<br>Scrivania</p>
+							<h6 data-i18n="features_bedroom">🛏️ Bedroom</h6>
+							<p data-i18n="features_bedroom_desc">Double bed<br>TV<br>Wardrobe<br>Desk</p>
 						</div>
 						<div class="col-md-3 text-center mb-3">
-							<h6>🚿 Bagno privato</h6>
-							<p>WC<br>Bidet<br>Doccia<br>Asciugamani<br>Asciugacapelli<br>Bagnoschiuma<br>Shampoo</p>
+							<h6 data-i18n="features_bathroom">🚿 Private Bathroom</h6>
+							<p data-i18n="features_bathroom_desc">WC<br>Bidet<br>Shower<br>Towels<br>Hairdryer<br>Shower gel<br>Shampoo</p>
 						</div>
 					</div>
 				</div>
@@ -449,33 +316,33 @@
 	<!-- Servizi -->
 	<section id="services" class="py-5 bg-white">
 		<div class="container">
-			<h2 class="mb-4 text-center">Servizi Inclusi</h2>
+			<h2 class="mb-4 text-center" data-i18n="services_title">Included Services</h2>
 			<div class="row">
 				<div class="col-md-4 text-center mb-3">
-					<h5>📶 Internet</h5>
-					<p>WiFi veloce gratuito<br></p>
+					<h5 data-i18n="services_internet">📶 Internet</h5>
+					<p data-i18n="services_internet_desc">Free fast WiFi<br></p>
 				</div>
 				<div class="col-md-4 text-center mb-3">
-					<h5>❄️🔥 Climatizzazione</h5>
-					<p>Aria condizionata<br>e riscaldamento</p>
-				</div>
-
-				<div class="col-md-4 text-center mb-3">
-					<h5>📺 Intrattenimento</h5>
-					<p>TV a schermo piatto<br>nel soggiorno e in camera</p>
-				</div>
-				<div class="col-md-4 text-center mb-3">
-					<h5>🛗 Comodità</h5>
-					<p>Ascensore</p>
+					<h5 data-i18n="services_climate">❄️🔥 Air Conditioning</h5>
+					<p data-i18n="services_climate_desc">Air conditioning<br>and heating</p>
 				</div>
 
 				<div class="col-md-4 text-center mb-3">
-					<h5>💼 Lavoro</h5>
-					<p>Scrivania</p>
+					<h5 data-i18n="services_entertainment">📺 Entertainment</h5>
+					<p data-i18n="services_entertainment_desc">Flat screen TV<br>in living room and bedroom</p>
 				</div>
 				<div class="col-md-4 text-center mb-3">
-					<h5>🗣️ Lingue</h5>
-					<p>Inglese<br>Italiano</p>
+					<h5 data-i18n="services_comfort">🛗 Comfort</h5>
+					<p data-i18n="services_comfort_desc">Elevator</p>
+				</div>
+
+				<div class="col-md-4 text-center mb-3">
+					<h5 data-i18n="services_work">💼 Work</h5>
+					<p data-i18n="services_work_desc">Desk</p>
+				</div>
+				<div class="col-md-4 text-center mb-3">
+					<h5 data-i18n="services_languages">🗣️ Languages</h5>
+					<p data-i18n="services_languages_desc">English<br>Italian</p>
 				</div>
 		</div>
 	</section>
@@ -483,57 +350,55 @@
 	<!-- Posizione e Dintorni -->
 	<section id="location" class="py-5 bg-light">
 		<div class="container">
-			<h2 class="mb-4 text-center">Posizione e Dintorni</h2>
+			<h2 class="mb-4 text-center" data-i18n="location_title">Location & Surroundings</h2>
 			<div class="row justify-content-center">
-				<div class="col-md-10 text-center">
-					<p class="lead">Avesella House si trova nel centro storico di Bologna, circondato da palazzi
-						storici e a pochi passi dalle principali attrazioni della città. 
-						A due passi da via dell'Indipendenza per passeggiate e shopping nel centro.</p>
+				   <div class="col-md-10 text-center">
+					   <p class="lead" data-i18n="location_lead">Avesella House si trova nel centro storico di Bologna, circondato da palazzi storici e a pochi passi dalle principali attrazioni della città. A due passi da via dell'Indipendenza per passeggiate e shopping nel centro.</p>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4 text-center mb-4">
-					<h4 class="text-primary mb-3">🏛️ Attrazioni Principali</h4>
+				   <div class="col-md-4 text-center mb-4">
+					   <h4 class="text-primary mb-3" data-i18n="location_main_attractions">🏛️ Attrazioni Principali</h4>
 					<ul class="list-unstyled">
-						<li class="mb-2">🎭 <strong>Teatro Arena del Sole</strong> - 230 m</li>
-						<li class="mb-2">⛲ <strong>Piazza dell'Otto Agosto</strong> - 300 m</li>
-						<li class="mb-2">🌳 <strong>Parco della Montagnola</strong> - 400 m</li>
-						<li class="mb-2">🎭 <strong>Teatro Manzoni</strong> - 500 m</li>
-						<li class="mb-2">🎨 <strong>Museo Civico Medievale </strong> - 500 m</li>
-						<li class="mb-2">🎨 <strong>Palazzo Fava</strong> - 500 m</li>
-						<li class="mb-2">🖼️ <strong>Museo Mambo</strong> - 550 m</li>
-						<li class="mb-2">⛲ <strong>Piazza Maggiore</strong> - 850 m</li>
-						<li class="mb-2">🎭 <strong>Macchina del Tempo</strong> - 900 m</li>
-						<li class="mb-2">🖼️ <strong>Pinacoteca Nazionale</strong> - 1,1 km</li>
-						<li class="mb-2">🌳 <strong>Giardini Margherita</strong> - 2,5 km</li>
+						   <li class="mb-2" data-i18n="location_attraction_arena">🎭 <strong>Teatro Arena del Sole</strong> - 230 m</li>
+						   <li class="mb-2" data-i18n="location_attraction_ottoagosto">⛲ <strong>Piazza dell'Otto Agosto</strong> - 300 m</li>
+						   <li class="mb-2" data-i18n="location_attraction_montagnola">🌳 <strong>Parco della Montagnola</strong> - 400 m</li>
+						   <li class="mb-2" data-i18n="location_attraction_manzoni">🎭 <strong>Teatro Manzoni</strong> - 500 m</li>
+						   <li class="mb-2" data-i18n="location_attraction_medievale">🎨 <strong>Museo Civico Medievale </strong> - 500 m</li>
+						   <li class="mb-2" data-i18n="location_attraction_fava">🎨 <strong>Palazzo Fava</strong> - 500 m</li>
+						   <li class="mb-2" data-i18n="location_attraction_mambo">🖼️ <strong>Museo Mambo</strong> - 550 m</li>
+						   <li class="mb-2" data-i18n="location_attraction_maggiore">⛲ <strong>Piazza Maggiore</strong> - 850 m</li>
+						   <li class="mb-2" data-i18n="location_attraction_macchina">🎭 <strong>Macchina del Tempo</strong> - 900 m</li>
+						   <li class="mb-2" data-i18n="location_attraction_pinacoteca">🖼️ <strong>Pinacoteca Nazionale</strong> - 1,1 km</li>
+						   <li class="mb-2" data-i18n="location_attraction_giardini">🌳 <strong>Giardini Margherita</strong> - 2,5 km</li>
 					</ul>
 				</div>
 
-				<div class="col-md-4 text-center mb-4">
-					<h4 class="text-success mb-3">🏰 Palazzi Storici</h4>
+				   <div class="col-md-4 text-center mb-4">
+					   <h4 class="text-success mb-3" data-i18n="location_historic_buildings">🏰 Palazzi Storici</h4>
 					<ul class="list-unstyled">
-						<li class="mb-2">🏛️ <strong>Palazzo Bonasoni</strong> - 150 m</li>
-						<li class="mb-2">🏛️ <strong>Palazzo Felicini</strong> - 150 m</li>
-						<li class="mb-2">🏛️ <strong>Palazzo Merendoni</strong> - 200 m</li>
-						<li class="mb-2">🗿 <strong>Statua di Garibaldi</strong> - 300 m</li>
-						<li class="mb-2">🏠 <strong>Casa delle Tuate</strong> - 300 m</li>
-						<li class="mb-2">🏛️ <strong>Palazzo dal Monte</strong> - 300 m</li>
-						<li class="mb-2">🚪 <strong>Porta Govese</strong> - 400 m</li>
-						<li class="mb-2">🏛️ <strong>Palazzo Faccetta Nera</strong> - 450 m</li>
-						<li class="mb-2">⛲ <strong>Statua del Nettuno</strong> - 900 m</li>
+						   <li class="mb-2" data-i18n="location_building_bonasoni">🏛️ <strong>Palazzo Bonasoni</strong> - 150m</li>
+						   <li class="mb-2" data-i18n="location_building_felicini">🏛️ <strong>Palazzo Felicini</strong> - 150m</li>
+						   <li class="mb-2" data-i18n="location_building_merendoni">🏛️ <strong>Palazzo Merendoni</strong> - 200m</li>
+						   <li class="mb-2" data-i18n="location_building_garibaldi">🗿 <strong>Statua di Garibaldi</strong> - 300m</li>
+						   <li class="mb-2" data-i18n="location_building_tuate">🏠 <strong>Casa delle Tuate</strong> - 300m</li>
+						   <li class="mb-2" data-i18n="location_building_dalmonte">🏛️ <strong>Palazzo dal Monte</strong> - 300m</li>
+						   <li class="mb-2" data-i18n="location_building_govese">🚪 <strong>Porta Govese</strong> - 400m</li>
+						   <li class="mb-2" data-i18n="location_building_faccetta">🏛️ <strong>Palazzo Faccetta Nera</strong> - 450m</li>
+						   <li class="mb-2" data-i18n="location_building_nettuno">⛲ <strong>Statua del Nettuno</strong> - 900m</li>
 					</ul>
 				</div>
 
-				<div class="col-md-4 text-center mb-4">
-					<h4 class="text-info mb-3">🚌 Mezzi di Trasporto</h4>
+				   <div class="col-md-4 text-center mb-4">
+					   <h4 class="text-info mb-3" data-i18n="location_transport">🚌 Mezzi di Trasporto</h4>
 					<ul class="list-unstyled mb-4">
-						<li class="mb-2">🚂 <strong>Stazione Centrale</strong> - 850 m</li>
-						<li class="mb-2">✈️ <strong>Aeroporto Marconi</strong> - 7 km</li>
-					</ul><h4 class="text-warning mb-3">🍽️ Ristoranti</h4>
+						   <li class="mb-2" data-i18n="location_transport_station">🚂 <strong>Stazione Centrale</strong> - 850m</li>
+						   <li class="mb-2" data-i18n="location_transport_airport">✈️ <strong>Aeroporto Marconi</strong> - 7km</li>
+					</ul><h4 class="text-warning mb-3" data-i18n="location_restaurants">🍽️ Ristoranti</h4>
 					<ul class="list-unstyled">
-						<li class="mb-2">🍝 <strong>Trattoria Valerio</strong> - 10 m</li>
-						<li class="mb-2">🍽️ <strong>L'Altro Gusto</strong> - 200 m</li>
-						<li class="mb-2">🍕 <strong>Pistamentuccia</strong> - 200 m</li>
+						   <li class="mb-2" data-i18n="location_restaurant_valerio">🍝 <strong>Trattoria Valerio</strong> - 10m</li>
+						   <li class="mb-2" data-i18n="location_restaurant_altrogusto">🍽️ <strong>L'Altro Gusto</strong> - 200m</li>
+						   <li class="mb-2" data-i18n="location_restaurant_pistamentuccia">🍕 <strong>Pistamentuccia</strong> - 200m</li>
 					</ul>
 				</div>
 			</div>
@@ -630,69 +495,17 @@
 		</div>
 	</div>
 
-	<script>
-		// Gestione click sulle immagini del carosello per aprire la modale
-		document.addEventListener('DOMContentLoaded', function () {
-			const clickableImages = document.querySelectorAll('.clickable-image');
-			const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
-			const modalElement = document.getElementById('imageModal');
-			const modalImage = document.getElementById('modalImage');
-			const modalTitle = document.getElementById('modalImageTitle');
-			const modalDescription = document.getElementById('modalImageDescription');
-
-			clickableImages.forEach(function (img) {
-				img.addEventListener('click', function (e) {
-					// Previeni che il click passi al carosello
-					e.stopPropagation();
-
-					// Aggiorna la modale con i dati dell'immagine
-					modalImage.src = this.src;
-					modalImage.alt = this.alt;
-					modalTitle.textContent = this.dataset.title;
-					modalDescription.textContent = this.dataset.description;
-
-					// Mostra la modale
-					imageModal.show();
-				});
-			});
-
-			// Listener per la pulizia completa della modale quando viene chiusa
-			modalElement.addEventListener('hidden.bs.modal', function () {
-				// Assicurati che l'overlay sia completamente rimosso
-				const backdropElements = document.querySelectorAll('.modal-backdrop');
-				backdropElements.forEach(backdrop => backdrop.remove());
-				
-				// Ripristina lo scroll del body se necessario
-				document.body.classList.remove('modal-open');
-				document.body.style.overflow = '';
-				document.body.style.paddingRight = '';
-			});
-
-			// Chiusura automatica del menu mobile quando si clicca su una voce
-			const navbarToggler = document.querySelector('.navbar-toggler');
-			const navbarCollapse = document.querySelector('#navbarNav');
-			const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-
-			navLinks.forEach(function (link) {
-				link.addEventListener('click', function () {
-					// Verifica se il menu è aperto (visibile)
-					if (navbarCollapse.classList.contains('show')) {
-						// Chiude il menu mobile
-						const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
-							toggle: false
-						});
-						bsCollapse.hide();
-					}
-				});
-			});
-		});
-	</script>
-
 	<!-- Disponibilità -->
 	<section id="availability" class="py-5 bg-white">
 		<div class="container">
-			<h2 class="mb-4 text-center">Disponibilità & Prezzi</h2>
+			<h2 class="mb-4 text-center" data-i18n="availability_title">Availability & Prices</h2>
 			<div id="calendar"></div>
+			<div class="alert alert-info mt-3" data-i18n="calendar_instructions">
+				<strong>Come prenotare:</strong> <br>
+				• <em>Click singolo</em>: Clicca su un giorno, poi su un altro per selezionare il periodo<br>
+				• <em>Trascina</em>: Clicca e trascina per selezionare un periodo<br>
+				<strong>Prenotazione valida:</strong> di almeno 2 giorni
+			</div>
 			
 			<!-- Informazioni sulla selezione -->
 			<div id="selectionInfo" class="mt-4 text-center" style="display: none;">
@@ -704,7 +517,7 @@
 			</div>
 			
 			<div class="text-center">
-				<button id="bookEmailBtn" class="btn btn-success">Prenota</button>
+				<button id="bookEmailBtn" class="btn btn-success" data-i18n="availability_book_btn">Book</button>
 			</div>
 		</div>
 	</section>
@@ -712,48 +525,48 @@
 	<!-- Regole -->
 	<section id="rules" class="py-5 bg-light">
 		<div class="container">
-			<h2 class="mb-4 text-center">Regole e Informazioni</h2>
+			<h2 class="mb-4 text-center" data-i18n="rules_title">Rules & Information</h2>
 
 			<div class="row">
 				<div class="col-md-6">
-					<h4 class="text-primary mb-3">🕐 Orari e Check-in</h4>
+					<h4 class="text-primary mb-3" data-i18n="rules_times">🕐 Times & Check-in</h4>
 					<ul class="list-unstyled">
-						<li class="mb-2">🕐 <strong>Arrivo:</strong> dalle 15:00 alle 18:00</li>
-						<li class="mb-2">📞 <strong>Comunicare in anticipo l'orario di arrivo</strong></li>
-						<li class="mb-2">🕐 <strong>Partenza:</strong> entro le 11:00</li>
-						<li class="mb-2">🔞 <strong>Nessuna età minima per il check-in</strong></li>
+						<li class="mb-2" data-i18n="rules_arrival">🕐 <strong>Arrival:</strong> from 15:00 to 18:00</li>
+						<li class="mb-2" data-i18n="rules_notify">📞 <strong>Please notify your arrival time in advance</strong></li>
+						<li class="mb-2" data-i18n="rules_departure">🕐 <strong>Departure:</strong> by 11:00</li>
+						<li class="mb-2" data-i18n="rules_no_age_limit">🔞 <strong>No minimum age for check-in</strong></li>
 					</ul>
 
-					<h4 class="text-danger mb-3 mt-4">🚫 Non Consentito</h4>
+					<h4 class="text-danger mb-3 mt-4" data-i18n="rules_not_allowed">🚫 Not Allowed</h4>
 					<ul class="list-unstyled">
-						<li class="mb-2">🚭 <strong>Fumare non è consentito</strong></li>
-						<li class="mb-2">🎉 <strong>Non è permesso organizzare feste/eventi</strong></li>
-						<li class="mb-2">🐕 <strong>Animali non ammessi</strong></li>
-						<li class="mb-2">🕯️ <strong>Candele e incenso non consentiti</strong></li>
-						<li class="mb-2">🔊 <strong>Musica alta e feste vietate</strong></li>
+						<li class="mb-2" data-i18n="rules_no_smoking">🚭 <strong>Smoking is not allowed</strong></li>
+						<li class="mb-2" data-i18n="rules_no_parties">🎉 <strong>No parties/events allowed</strong></li>
+						<li class="mb-2" data-i18n="rules_no_pets">🐕 <strong>No pets allowed</strong></li>
+						<li class="mb-2" data-i18n="rules_no_candles">🕯️ <strong>No candles or incense allowed</strong></li>
+						<li class="mb-2" data-i18n="rules_no_loud_music">🔊 <strong>No loud music or parties</strong></li>
 					</ul>
 				</div>
 
 				<div class="col-md-6">
-					<h4 class="text-success mb-3">🤫 Orari di Quiete</h4>
+					<h4 class="text-success mb-3" data-i18n="rules_quiet">🤫 Quiet Hours</h4>
 					<ul class="list-unstyled">
-						<li class="mb-2">🕐 <strong>Dalle 14:00 alle 16:00</strong> (riposo pomeridiano)</li>
-						<li class="mb-2">🌙 <strong>Dalle 23:00 alle 08:00</strong> (riposo notturno)</li>
+						<li class="mb-2" data-i18n="rules_quiet_afternoon">🕐 <strong>From 14:00 to 16:00</strong> (afternoon rest)</li>
+						<li class="mb-2" data-i18n="rules_quiet_night">🌙 <strong>From 23:00 to 08:00</strong> (night rest)</li>
 					</ul>
 
-					<h4 class="text-warning mb-3 mt-4">⚠️ Linee Guida</h4>
+					<h4 class="text-warning mb-3 mt-4" data-i18n="rules_guidelines">⚠️ Guidelines</h4>
 					<ul class="list-unstyled">
-						<li class="mb-2">👥 <strong>Solo ospiti registrati sono ammessi</strong></li>
-						<li class="mb-2">� <strong>Ciabatte monouso fornite per la camera</strong></li>
-						<li class="mb-2">🧳 <strong>Attenzione a non trascinare valigie sul parquet</strong></li>
-						<li class="mb-2">🌍 <strong>Uso responsabile di acqua ed elettricità</strong></li>
-						<li class="mb-2">🔑 <strong>Attenzione alle chiavi - sostituzione serratura a carico dell'ospite</strong></li></li>
-						<li class="mb-2">⚠️ <strong>Comunicare immediatamente danni o incidenti</strong></li>
+						<li class="mb-2" data-i18n="rules_only_guests">👥 <strong>Only registered guests are allowed</strong></li>
+						<li class="mb-2" data-i18n="rules_slippers">🥿 <strong>Disposable slippers provided for the room</strong></li>
+						<li class="mb-2" data-i18n="rules_no_luggage">🧳 <strong>Do not drag suitcases on the parquet</strong></li>
+						<li class="mb-2" data-i18n="rules_responsible_use">🌍 <strong>Responsible use of water and electricity</strong></li>
+						<li class="mb-2" data-i18n="rules_keys">🔑 <strong>Be careful with keys - lock replacement at guest's expense</strong></li>
+						<li class="mb-2" data-i18n="rules_report_damage">⚠️ <strong>Report any damage or incident immediately</strong></li>
 					</ul>
 
-					<h4 class="text-info mb-3 mt-4">🛏️ Letti Aggiuntivi</h4>
+					<h4 class="text-info mb-3 mt-4" data-i18n="rules_extra_beds">🛏️ Extra Beds</h4>
 					<ul class="list-unstyled">
-						<li class="mb-2">❌ <strong>Non disponibili culle o letti supplementari</strong></li>
+						<li class="mb-2" data-i18n="rules_no_extra_beds">❌ <strong>No cots or extra beds available</strong></li>
 					</ul>
 				</div>
 			</div>
@@ -761,7 +574,7 @@
 	</section>
 
 	<!-- Recensioni -->
-	<section id="reviews" class="py-5 bg-white">
+	<!-- <section id="reviews" class="py-5 bg-white">
 		<div class="container">
 			<h2 class="mb-4 text-center">Recensioni</h2>
 			<blockquote class="blockquote text-center">
@@ -769,32 +582,32 @@
 				<footer class="blockquote-footer">Valutazione: 9.5/10 su Booking</footer>
 			</blockquote>
 		</div>
-	</section>
+	</section> -->
 
 	<!-- FAQ -->
 	<section id="faq" class="py-5 bg-white">
 		<div class="container">
-			<h2 class="mb-4 text-center">Domande Frequenti</h2>
+			<h2 class="mb-4 text-center" data-i18n="faq_title">Frequently Asked Questions</h2>
 			<div class="row">
 				<div class="col-md-6">
-					<h5><strong>🅿️ Dove posso parcheggiare?</strong></h5>
-					<p>Ci sono parcheggi a pagamento pubblici nel centro storico.</p>
+					<h5 data-i18n="faq_parking_q"><strong>🅿️ Where can I park?</strong></h5>
+					<p data-i18n="faq_parking_a">There are paid public parking lots in the historic center.</p>
 
-					<h5><strong>📶 Il WiFi è incluso?</strong></h5>
-					<p>Sì, WiFi veloce gratuito da 343 Mbps disponibile in tutto l'appartamento.</p>
+					<h5 data-i18n="faq_wifi_q"><strong>📶 Is WiFi included?</strong></h5>
+					<p data-i18n="faq_wifi_a">Yes, fast free WiFi (343 Mbps) is available throughout the apartment.</p>
 
-					<h5><strong>❄️ C'è l'aria condizionata?</strong></h5>
-					<p>Sì, l'appartamento è dotato di aria condizionata e riscaldamento.</p>
+					<h5 data-i18n="faq_ac_q"><strong>❄️ Is there air conditioning?</strong></h5>
+					<p data-i18n="faq_ac_a">Yes, the apartment has air conditioning and heating.</p>
 				</div>
 				<div class="col-md-6">
-					<h5><strong>🛗 C'è l'ascensore?</strong></h5>
-					<p>Sì, l'edificio storico del 1890 è dotato di ascensore.</p>
+					<h5 data-i18n="faq_elevator_q"><strong>🛗 Is there an elevator?</strong></h5>
+					<p data-i18n="faq_elevator_a">Yes, the 1890 historic building has an elevator.</p>
 
-					<h5><strong>👶 Sono disponibili letti aggiuntivi?</strong></h5>
-					<p>Non sono disponibili letti aggiuntivi.</p>
+					<h5 data-i18n="faq_extra_beds_q"><strong>🛏️ Are extra beds available?</strong></h5>
+					<p data-i18n="faq_extra_beds_a">No extra beds are available.</p>
 
-					<h5><strong>🐕 Posso portare animali?</strong></h5>
-					<p>No, gli animali non sono ammessi nell'appartamento.</p>
+					<h5 data-i18n="faq_pets_q"><strong>🐕 Can I bring pets?</strong></h5>
+					<p data-i18n="faq_pets_a">No, pets are not allowed in the apartment.</p>
 				</div>
 			</div>
 		</div>
@@ -803,30 +616,38 @@
 	<!-- Contatti -->
 	<section id="contacts" class="py-5 bg-light">
 		<div class="container text-center">
-			<h2 class="mb-4">Contatti</h2>
+			<h2 class="mb-4" data-i18n="contacts_title">Contacts</h2>
 			<div class="row justify-content-center">
 				<div class="col-md-6">
-					<p>📧 <strong>Email:</strong> info@avesella.it</p>
-					<p>📱 <strong>Telefono:</strong> +39 328 46 36 570</p>
-					<p>🗣️ <strong>Lingue parlate:</strong> Italiano, Inglese</p>
+					<p>📧 <strong data-i18n="contacts_email_label">Email:</strong> enzosinagra@gmail.com</p>
+					<p>📱 <strong data-i18n="contacts_phone_label">Phone:</strong> +39 328 46 36 570</p>
+					<p>🗣️ <strong data-i18n="contacts_languages_label">Languages spoken:</strong> Italian, English</p>
 					
 					<!-- Pulsanti di contatto -->
 					<div class="mt-4">
 						<a href="https://wa.me/393284636570?text=Ciao!%20Sono%20interessato%20ad%20Avesella%20House%20per%20una%20prenotazione." 
-						   class="btn btn-success btn-lg me-3 mb-2" 
-						   target="_blank" 
-						   rel="noopener noreferrer">
-						   <i class="fab fa-whatsapp"></i> 💬 Scrivici su WhatsApp
-						</a>
-						<a href="mailto:info@avesella.it?subject=Richiesta%20informazioni%20Avesella%20House" 
+															class="btn btn-success btn-lg me-3 mb-2" 
+															target="_blank" 
+															rel="noopener noreferrer"
+															data-i18n="contacts_whatsapp_btn">
+															<i class="fab fa-whatsapp"></i> 💬 Contact us on WhatsApp
+														</a>
+						<!-- <a href="mailto:info@avesella.it?subject=Richiesta%20informazioni%20Avesella%20House" 
 						   class="btn btn-primary btn-lg mb-2">
 						   📧 Invia Email
-						</a>
+						</a> -->
 					</div>
 				</div>
 			</div>
 			<div class="ratio ratio-16x9 mt-4">
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen></iframe>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2845.5!2d11.3417333!3d44.4998392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477fd5b5f37e2dff%3A0x537e338e8265a608!2sAvesella%20House!5e0!3m2!1sit!2sit!4v1709567890123!5m2!1sit!2sit" 
+				       width="600" 
+				       height="450" 
+				       style="border:0;" 
+				       allowfullscreen="" 
+				       loading="lazy" 
+				       referrerpolicy="no-referrer-when-downgrade">
+				</iframe>
 			</div>
 		</div>
 	</section>
@@ -844,31 +665,37 @@
 
 	<!-- Footer -->
 	<footer class="bg-dark text-light text-center py-3">
-		<p class="mb-0">&copy; 2025 Avesella House - Appartamento nel centro storico di Bologna</p>
+	<p class="mb-0" data-i18n="footer_copyright">&copy; 2025 Avesella House</p>
 	</footer>
 
 	<!-- JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 	<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/language.js"></script>
 
+	<!-- Caricamento calendar.js solo dopo che tutte le librerie sono pronte -->
 	<script>
-		// Aspettiamo che FullCalendar sia caricato prima di caricare calendar.js
-		function loadCalendarScript() {
-			console.log('Controllo FullCalendar...', typeof FullCalendar);
-			if (typeof FullCalendar !== 'undefined') {
-				console.log('FullCalendar trovato! Carico calendar.js');
-				const script = document.createElement('script');
-				script.src = 'js/calendar.js';
-				document.head.appendChild(script);
-			} else {
-				console.log('FullCalendar non ancora disponibile, riprovo...');
-				setTimeout(loadCalendarScript, 100);
-			}
+	// Aspettiamo che tutte le librerie siano caricate
+	function loadCalendarScript() {
+		console.log('Controllo librerie...');
+		console.log('FullCalendar:', typeof FullCalendar);
+		console.log('EmailJS:', typeof emailjs);
+		if (typeof FullCalendar !== 'undefined' && typeof emailjs !== 'undefined') {
+			console.log('Tutte le librerie trovate! Carico calendar.js');
+			const script = document.createElement('script');
+			script.src = 'js/calendar.js';
+			document.head.appendChild(script);
+		} else {
+			console.log('Alcune librerie non ancora disponibili, riprovo...');
+			setTimeout(loadCalendarScript, 100);
 		}
-		// Aspettiamo che il DOM sia pronto
-		document.addEventListener('DOMContentLoaded', function () {
-			loadCalendarScript();
-		});
+	}
+	// Aspettiamo che il DOM sia pronto
+	document.addEventListener('DOMContentLoaded', function () {
+		loadCalendarScript();
+	});
 	</script>
 </body>
 
