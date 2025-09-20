@@ -55,7 +55,7 @@
 					<li class="nav-item"><a class="nav-link" href="#home" data-i18n="nav_home">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="#gallery" data-i18n="nav_gallery">Photos</a></li>
 					<li class="nav-item"><a class="nav-link" href="#features" data-i18n="nav_features">The Apartment</a></li>
-					<li class="nav-item"><a class="nav-link" href="#services" data-i18n="nav_services">Included Services</a></li>
+					<li class="nav-item"><a class="nav-link" href="#services" data-i18n="nav_services">Services</a></li>
 					<li class="nav-item"><a class="nav-link" href="#location" data-i18n="nav_location">Location</a></li>
 					<li class="nav-item"><a class="nav-link" href="#availability" data-i18n="nav_availability">Availability</a></li>
 					<li class="nav-item"><a class="nav-link" href="#rules" data-i18n="nav_rules">Rules</a></li>
@@ -653,16 +653,89 @@
 	</div>
 
 	<!-- Footer -->
-	<footer class="bg-dark text-light text-center py-3">
-	<p class="mb-0" data-i18n="footer_copyright">&copy; 2025 - B&B Avesella House</p>
-	</footer>
+		<footer class="bg-dark text-light text-center py-3">
+				<p class="mb-0" data-i18n="footer_copyright">&copy; 2025 - B&B Avesella House</p>
+				<p class="mb-0 mt-2">
+						<a href="#" class="text-light text-decoration-underline" data-bs-toggle="modal" data-bs-target="#privacyModal" style="font-size:0.95em;">Privacy &amp; Cookie Policy</a>
+				</p>
+		</footer>
+
+		<!-- Privacy Modal -->
+		<div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				   <div class="modal-content">
+					   <div class="modal-header">
+						   <h5 class="modal-title" id="privacyModalLabel" data-i18n="privacy_modal_title">Informativa Privacy</h5>
+						   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi"></button>
+					   </div>
+					   <div class="modal-body text-start" style="font-size:0.98em;">
+						   <div data-i18n="privacy_modal_body">
+							   <p><strong>Ai sensi del Regolamento UE 2016/679 (GDPR):</strong></p>
+							   <ul>
+								   <li>Non vengono raccolti né salvati dati personali di navigazione.</li>
+								   <li>L'unico trattamento dati avviene quando l'utente compila il form di prenotazione o ci contatta tramite WhatsApp/email: i dati forniti saranno utilizzati esclusivamente per rispondere alla richiesta e non saranno ceduti a terzi.</li>
+								   <li>Non vengono utilizzati cookie di profilazione, ma solo cookie tecnici necessari al funzionamento del sito.</li>
+								   <li>Per ogni richiesta di informazioni o per esercitare i diritti previsti dal GDPR (accesso, rettifica, cancellazione, ecc.), scrivere a <a href="mailto:enzosinagra@gmail.com">enzosinagra@gmail.com</a>.</li>
+							   </ul>
+							   <p>Per maggiori dettagli puoi contattarci liberamente.</p>
+						   </div>
+					   </div>
+					   <div class="modal-footer">
+						   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-i18n="privacy_modal_close">Chiudi</button>
+					   </div>
+				   </div>
+			</div>
+		</div>
 
 	<!-- JS -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 	<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
-	<script src="js/carousel.js?v=1"></script>
-	<script src="js/language.js?v=1"></script>
+		 <script src="js/carousel.js?v=1"></script>
+		 <script src="js/language.js?v=1"></script>
+		 <script>
+		 // Estendi l'oggetto delle traduzioni in js/language.js con le chiavi per la privacy modal
+		 window.translations = window.translations || {};
+		 window.translations.it = Object.assign(window.translations.it || {}, {
+			 privacy_modal_title: "Informativa Privacy",
+			 privacy_modal_body: `<p><strong>Ai sensi del Regolamento UE 2016/679 (GDPR):</strong></p>
+			 <ul>
+					 <li>Non vengono raccolti né salvati dati personali di navigazione.</li>
+					 <li>L'unico trattamento dati avviene quando l'utente compila il form di prenotazione o ci contatta tramite WhatsApp/email: i dati forniti saranno utilizzati esclusivamente per rispondere alla richiesta e non saranno ceduti a terzi.</li>
+					 <li>Non vengono utilizzati cookie di profilazione, ma solo cookie tecnici necessari al funzionamento del sito.</li>
+					 <li>Per ogni richiesta di informazioni o per esercitare i diritti previsti dal GDPR (accesso, rettifica, cancellazione, ecc.), scrivere a <a href=\"mailto:enzosinagra@gmail.com\">enzosinagra@gmail.com</a>.</li>
+			 </ul>
+			 <p>Per maggiori dettagli puoi contattarci liberamente.</p>`,
+			 privacy_modal_close: "Chiudi"
+		 });
+		 window.translations.en = Object.assign(window.translations.en || {}, {
+			 privacy_modal_title: "Privacy Notice",
+			 privacy_modal_body: `<p><strong>In accordance with EU Regulation 2016/679 (GDPR):</strong></p>
+			 <ul>
+					 <li>No browsing personal data is collected or stored.</li>
+					 <li>The only data processing occurs when you fill out the booking form or contact us via WhatsApp/email: the data provided will be used solely to respond to your request and will not be shared with third parties.</li>
+					 <li>No profiling cookies are used, only technical cookies necessary for the functioning of the site.</li>
+					 <li>For any information request or to exercise your GDPR rights (access, rectification, erasure, etc.), write to <a href=\"mailto:enzosinagra@gmail.com\">enzosinagra@gmail.com</a>.</li>
+			 </ul>
+			 <p>For more details, feel free to contact us.</p>`,
+			 privacy_modal_close: "Close"
+		 });
+		 // Aggiorna la privacy modal quando cambia la lingua
+		 function updatePrivacyModalI18n() {
+			 var lang = window.currentLanguage || 'it';
+			 var t = window.translations[lang] || window.translations['it'];
+			 var title = document.querySelector('#privacyModalLabel');
+			 var body = document.querySelector('#privacyModal [data-i18n="privacy_modal_body"]');
+			 var closeBtn = document.querySelector('#privacyModal .modal-footer [data-i18n="privacy_modal_close"]');
+			 if (title && t.privacy_modal_title) title.textContent = t.privacy_modal_title;
+			 if (body && t.privacy_modal_body) body.innerHTML = t.privacy_modal_body;
+			 if (closeBtn && t.privacy_modal_close) closeBtn.textContent = t.privacy_modal_close;
+		 }
+		 // Hook nel cambio lingua
+		 document.addEventListener('languageChanged', updatePrivacyModalI18n);
+		 // Aggiorna subito all'avvio
+		 document.addEventListener('DOMContentLoaded', updatePrivacyModalI18n);
+		 </script>
 
 	<!-- Caricamento calendar.js solo dopo che tutte le librerie sono pronte -->
 	<script>

@@ -13,7 +13,7 @@ const translations = {
         nav_home: "Home",
         nav_gallery: "Photos",
         nav_features: "The Apartment",
-        nav_services: "Included Services",
+        nav_services: "Services",
         nav_location: "Location",
         nav_availability: "Availability",
         nav_rules: "Rules",
@@ -60,7 +60,7 @@ const translations = {
         features_bedroom_desc: "Double bed<br>TV<br>Wardrobe<br>Desk",
         features_bathroom: "🚿 Private Bathroom",
         features_bathroom_desc: "WC<br>Bidet<br>Shower<br>Towels<br>Hairdryer<br>Shower gel<br>Shampoo",
-        services_title: "Included Services",
+        services_title: "ces",
         services_internet: "📶 Internet",
         services_internet_desc: "Free fast WiFi<br>",
         services_climate: "❄️🔥 Air Conditioning",
@@ -306,6 +306,7 @@ const translations = {
 };
 
 function setLanguage(lang) {
+    window.currentLanguage = lang; // <--- fix: set global language for modal
     const dict = translations[lang] || translations.en;
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -316,6 +317,8 @@ function setLanguage(lang) {
     document.getElementById('lang-it').classList.toggle('opacity-50', lang !== 'it');
     // Salva preferenza
     localStorage.setItem('lang', lang);
+    // Aggiorna la privacy modal e altri listener
+    document.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
 }
 
 document.addEventListener('DOMContentLoaded', function () {
