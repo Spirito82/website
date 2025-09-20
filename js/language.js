@@ -9,7 +9,7 @@ const translations = {
 		location_restaurant_valerio: "🍝 <strong>Tavern Valerio</strong> - 10m",
 		location_restaurant_altrogusto: "🍽️ <strong>L'Altro Gusto</strong> - 200m",
 		location_restaurant_pistamentuccia: "🍕 <strong>Pistamentuccia</strong> - 200m",
-        navbar_brand: "Avesella House",
+        navbar_brand: "B&B Avesella House",
         nav_home: "Home",
         nav_gallery: "Photos",
         nav_features: "The Apartment",
@@ -19,7 +19,7 @@ const translations = {
         nav_rules: "Rules",
         nav_faq: "FAQ",
         nav_contacts: "Contacts",
-        home_title: "Avesella House",
+        home_title: "B&B Avesella House",
         home_subtitle: "Your elegant apartment in the historic center of Bologna",
         home_desc: "📍 Located in the center of Bologna, 600 meters from Mambo Museum of Modern Art and 300 meters from Via dell'Indipendenza. Complete apartment with free WiFi and air conditioning in a historic 1890 building.",
         home_book_btn: "Book now",
@@ -46,8 +46,8 @@ const translations = {
         gallery_elevator_desc: "Elevator with key available.",
         gallery_door_title: "Main Door",
         gallery_door_desc: "Wooden main door.",
-        gallery_building_title: "Building",
-        gallery_building_desc: "Building with portico for rain protection.",
+        gallery_building_title: "Palace",
+        gallery_building_desc: "Palace with portico for rain protection.",
         features_title: "The Apartment",
         features_lead: "🏛️ Complete apartment in a historic 1890 building in the center of Bologna",
         features_details: "📐 70 m² • 🛏️ 1 bedroom • 🛁 1 private bathroom • 👥 Entire accommodation for you",
@@ -74,7 +74,7 @@ const translations = {
         services_languages: "🗣️ Languages",
         services_languages_desc: "English<br>Italian",
 		location_title: "Location & Surroundings",
-		location_lead: "Avesella House is located in the historic center of Bologna, surrounded by historic buildings and just a few steps from the city's main attractions. A stone's throw from Via dell'Indipendenza for walks and shopping in the center.",
+		location_lead: "B&B Avesella House is located in the historic center of Bologna, surrounded by historic buildings and just a few steps from the city's main attractions. A stone's throw from Via dell'Indipendenza for walks and shopping in the center.",
 		location_main_attractions: "🏛️ Main Attractions",
 		location_historic_buildings: "🏰 Historic Buildings",
 		location_transport: "🚌 Transport",
@@ -143,7 +143,7 @@ const translations = {
         contacts_phone_label: "Phone:",
         contacts_languages_label: "Languages spoken:",
         contacts_whatsapp_btn: "💬 Contact us on WhatsApp",
-        footer_copyright: "© 2025 Avesella House"
+        footer_copyright: "© 2025 B&B Avesella House"
     },
     it: {
     calendar_instructions: `<strong>Come prenotare:</strong> <br>• <em>Click singolo</em>: Clicca su un giorno, poi su un altro per selezionare il periodo<br>• <em>Trascina</em>: Clicca e trascina per selezionare un periodo<br><strong>Prenotazione valida:</strong> di almeno 2 giorni`,
@@ -154,7 +154,7 @@ const translations = {
 		location_restaurant_valerio: "🍝 <strong>Trattoria Valerio</strong> - 10m",
 		location_restaurant_altrogusto: "🍽️ <strong>L'Altro Gusto</strong> - 200m",
 		location_restaurant_pistamentuccia: "🍕 <strong>Pistamentuccia</strong> - 200m",
-        navbar_brand: "Avesella House",
+        navbar_brand: "B&B Avesella House",
         nav_home: "Home",
         nav_gallery: "Foto",
         nav_features: "Appartamento",
@@ -164,7 +164,7 @@ const translations = {
         nav_rules: "Regole",
         nav_faq: "FAQ",
         nav_contacts: "Contatti",
-        home_title: "Avesella House",
+        home_title: "B&B Avesella House",
         home_subtitle: "Il tuo appartamento elegante nel centro storico di Bologna",
         home_desc: "📍 Posizionato al centro di Bologna, a 600 metri da Mambo Museo di Arte Moderna e 300 metri da Via dell'Indipendenza. Appartamento completo con WiFi gratuito e aria condizionata in edificio storico del 1890.",
         home_book_btn: "Prenota ora",
@@ -216,7 +216,7 @@ const translations = {
         services_languages: "🗣️ Lingue",
         services_languages_desc: "Inglese<br>Italiano",
 		location_title: "Posizione e Dintorni",
-		location_lead: "Avesella House si trova nel centro storico di Bologna, circondato da palazzi storici e a pochi passi dalle principali attrazioni della città. A due passi da via dell'Indipendenza per passeggiate e shopping nel centro.",
+		location_lead: "B&B Avesella House si trova nel centro storico di Bologna, circondato da palazzi storici e a pochi passi dalle principali attrazioni della città. A due passi da via dell'Indipendenza per passeggiate e shopping nel centro.",
 		location_main_attractions: "🏛️ Attrazioni Principali",
 		location_historic_buildings: "🏰 Palazzi Storici",
 		location_transport: "🚌 Mezzi di Trasporto",
@@ -301,7 +301,7 @@ const translations = {
         contacts_phone_label: "Telefono:",
         contacts_languages_label: "Lingue parlate:",
         contacts_whatsapp_btn: "💬 Scrivici su WhatsApp",
-        footer_copyright: "© 2025 Avesella House"
+        footer_copyright: "© 2025 B&B Avesella House"
     }
 };
 
