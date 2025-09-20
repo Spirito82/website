@@ -702,8 +702,8 @@
 			
 			// Parametri per l'email
 			const templateParams = {
-				to_email: 'emanuelesinagra@gmail.com',
-				to_email_2: 'enzosinagra@gmail.com',
+				to_email: 'emanuelesinagra@gmail.com,enzosinagra@gmail.com,info@staybologna.it',
+				//to_email_2: 'enzosinagra@gmail.com',
 				to_email_guest: email, // Email dell'ospite
 				from_name: name,
 				from_email: email,
