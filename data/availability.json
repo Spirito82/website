@@ -1,20 +1,6 @@
 {
-  "generated_at": "2025-09-20T21:08:14.912Z",
+  "generated_at": "2025-09-26T13:20:53.385Z",
   "events": [
-    {
-      "uid": "e6a010ea667f7adb98039681ed08acfd@booking.com",
-      "start": "2025-09-19",
-      "end": "2025-09-21",
-      "summary": "CLOSED - Not available",
-      "price": null
-    },
-    {
-      "uid": "a3298d0164986b6af4f19edd8e1c4a23@booking.com",
-      "start": "2025-09-21",
-      "end": "2025-09-25",
-      "summary": "CLOSED - Not available",
-      "price": null
-    },
     {
       "uid": "c188fc316e3c395fba3a0db91d642050@booking.com",
       "start": "2025-09-25",
@@ -54,6 +40,13 @@
       "uid": "7b77723233237f05868f385140e6c345@booking.com",
       "start": "2025-10-25",
       "end": "2025-10-28",
+      "summary": "CLOSED - Not available",
+      "price": null
+    },
+    {
+      "uid": "bea466c8522c69ca8a353d7dd4fd94b9@booking.com",
+      "start": "2025-10-29",
+      "end": "2025-11-05",
       "summary": "CLOSED - Not available",
       "price": null
     }
