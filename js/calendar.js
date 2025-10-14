@@ -18,7 +18,7 @@
 	// Funzione per caricare i prezzi
 	async function loadPricesConfig() {
 		try {
-			const response = await fetch('data/prices.json');
+			const response = await fetch('./data/prices.json', { cache: 'no-store' });
 			pricesConfig = await response.json();
 			console.log('Prezzi caricati:', pricesConfig);
 		} catch (error) {
