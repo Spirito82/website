@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin - Gestione Prezzi Avesella House</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/main.min.css' rel='stylesheet'>
+</head>
+
+<body>
+	<div class="container mt-4">
+		<h1>🏠 Admin - Gestione Prezzi Avesella House</h1>
+
+		<!-- Login semplice -->
+		<div id="loginSection" class="card mt-4">
+			<div class="card-body">
+				<h5>🔐 Accesso Admin</h5>
+				<input type="password" id="adminPassword" class="form-control" placeholder="Password">
+				<button onclick="login()" class="btn btn-primary mt-2">Accedi</button>
+			</div>
+		</div>
+
+		<!-- Area admin (nascosta inizialmente) -->
+		<div id="adminSection" style="display: none;">
+			<!-- Prezzo di default -->
+			<div class="card mt-4">
+				<div class="card-body">
+					<h5>💰 Prezzo di Default</h5>
+					<div class="input-group">
+						<span class="input-group-text">€</span>
+						<input type="number" id="defaultPrice" class="form-control" min="50" max="1000">
+						<button onclick="saveDefaultPrice()" class="btn btn-success">Salva</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Prezzi personalizzati -->
+			<div class="card mt-4">
+				<div class="card-body">
+					<h5>📅 Prezzi per Date Specifiche</h5>
+					<div class="row mb-3">
+						<div class="col-md-6">
+							<input type="date" id="customDate" class="form-control">
+						</div>
+						<div class="col-md-4">
+							<div class="input-group">
+								<span class="input-group-text">€</span>
+								<input type="number" id="customPrice" class="form-control" min="50" max="1000">
+							</div>
+						</div>
+						<div class="col-md-2">
+							<button onclick="addCustomPrice()" class="btn btn-primary">Aggiungi</button>
+						</div>
+					</div>
+
+					<!-- Lista prezzi personalizzati -->
+					<div id="customPricesList"></div>
+
+					<button onclick="saveCustomPrices()" class="btn btn-success mt-3">Salva Tutte le Modifiche</button>
+				</div>
+			</div>
+
+			<!-- Calendario per visualizzazione -->
+			<div class="card mt-4">
+				<div class="card-body">
+					<h5>📊 Anteprima Prezzi sul Calendario</h5>
+					<div id="adminCalendar"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+	<script src="js/admin.js?v=1"></script>
+</body>
+
+</html>
