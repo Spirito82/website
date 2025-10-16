@@ -20,9 +20,42 @@
 
 	// Funzione per ottenere traduzioni dal sistema i18n
 	function getTranslation(key) {
-		const lang = window.currentLanguage || 'en';
-		const dict = window.translations && window.translations[lang] ? window.translations[lang] : window.translations?.en || {};
-		return dict[key] || key;
+		console.log('=== DEBUG TRADUZIONE ===');
+		console.log('Chiave richiesta:', key);
+		console.log('Lingua corrente:', window.currentLanguage);
+		console.log('Traduzioni disponibili:', window.translations);
+		console.log('========================');
+		
+		const lang = window.currentLanguage || 'it'; // Default a italiano
+		const dict = window.translations && window.translations[lang] ? window.translations[lang] : (window.translations?.it || {});
+		const translation = dict[key];
+		
+		console.log('Dizionario per lingua', lang + ':', dict);
+		console.log('Traduzione trovata per', key + ':', translation);
+		
+		// Fallback con messaggi hardcoded se le traduzioni non sono disponibili
+		const fallbacks = {
+			'calendar_min_days_error': lang === 'en' 
+				? 'Bookings of at least 3 consecutive days are required. Please select a longer period.'
+				: 'Sono richieste prenotazioni di almeno 3 giorni consecutivi. Seleziona un periodo più lungo.',
+			'calendar_past_date_error': lang === 'en'
+				? 'You cannot select past dates.'
+				: 'Non puoi selezionare date nel passato.',
+			'calendar_booked_date_error': lang === 'en'
+				? 'This date is already booked.'
+				: 'Questa data è già prenotata.',
+			'calendar_unavailable_range_error': lang === 'en'
+				? 'The selected period contains unavailable days. Please select another period.'
+				: 'Il periodo selezionato contiene giorni non disponibili. Seleziona un altro periodo.',
+			'calendar_select_period_error': lang === 'en'
+				? 'Please first select a period of at least 3 days in the calendar'
+				: 'Seleziona prima un periodo di almeno 3 giorni nel calendario',
+			'calendar_booking_form_error': lang === 'en'
+				? 'Please fill in all required fields and accept the terms.'
+				: 'Compila tutti i campi obbligatori e accetta i termini.'
+		};
+		
+		return translation || fallbacks[key] || key;
 	}
 
 	// Funzione per caricare i prezzi
