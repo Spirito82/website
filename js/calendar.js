@@ -18,6 +18,13 @@
 	// Configurazione giorni minimi di prenotazione
 	const MIN_BOOKING_DAYS = 3;
 
+	// Funzione per ottenere traduzioni dal sistema i18n
+	function getTranslation(key) {
+		const lang = window.currentLanguage || 'en';
+		const dict = window.translations && window.translations[lang] ? window.translations[lang] : window.translations?.en || {};
+		return dict[key] || key;
+	}
+
 	// Funzione per caricare i prezzi
 	async function loadPricesConfig() {
 		try {
@@ -138,10 +145,10 @@
 		if (!isDateAvailable(dateStr)) {
 			if (isDateInPast(dateStr)) {
 				console.log('Data nel passato non selezionabile');
-				alert('Non è possibile selezionare date nel passato');
+				alert(getTranslation('calendar_past_date_error'));
 			} else {
 				console.log('Data non disponibile');
-				alert('Data non disponibile');
+				alert(getTranslation('calendar_booked_date_error'));
 			}
 			return;
 		}
@@ -174,7 +181,7 @@
 		// Verifica che ci siano almeno il numero minimo di giorni
 		const dayCount = getDaysBetween(startDate, finalEndDate);
 		if (dayCount < MIN_BOOKING_DAYS) {
-			alert(`Sono richieste prenotazioni di almeno ${MIN_BOOKING_DAYS} giorni consecutivi. Seleziona un periodo più lungo.`);
+			alert(getTranslation('calendar_min_days_error'));
 			// Reset della selezione
 			selectionStartDate = null;
 			isSelectingRange = false;
@@ -212,7 +219,7 @@
 
 		} else {
 			console.log('Range non disponibile');
-			alert('Il periodo selezionato contiene giorni non disponibili. Seleziona un altro periodo.');
+			alert(getTranslation('calendar_unavailable_range_error'));
 		}
 
 		// Reset della selezione
@@ -356,7 +363,7 @@
 			// Verifica che ci siano almeno il numero minimo di giorni
 			const dayCount = getDaysBetween(start, endDisplayStr);
 			if (dayCount < MIN_BOOKING_DAYS) {
-				alert(`Sono richieste prenotazioni di almeno ${MIN_BOOKING_DAYS} giorni consecutivi. Seleziona un periodo più lungo.`);
+				alert(getTranslation('calendar_min_days_error'));
 				calendar.unselect();
 				return;
 			}
@@ -566,7 +573,7 @@
 			// Verifica ancora una volta che siano almeno il numero minimo di giorni
 			const dayCount = getDaysBetween(start, end);
 			if (dayCount < MIN_BOOKING_DAYS) {
-				alert(`Errore: Sono richieste prenotazioni di almeno ${MIN_BOOKING_DAYS} giorni consecutivi.`);
+				alert(getTranslation('calendar_min_days_error'));
 				return;
 			}
 
@@ -578,7 +585,7 @@
 			showBookingForm(start, end, startFormatted, endFormatted, dayCount, price);
 
 		} else {
-			alert(`Seleziona prima un periodo di almeno ${MIN_BOOKING_DAYS} giorni nel calendario`);
+			alert(getTranslation('calendar_select_period_error'));
 		}
 	});
 
@@ -658,7 +665,7 @@
 
 		// Validazione
 		if (!name || !email || !guestCount || !acceptedTerms) {
-			alert('Compila tutti i campi obbligatori e accetta le regole della struttura');
+			alert(getTranslation('calendar_booking_form_error'));
 			return;
 		}
 
