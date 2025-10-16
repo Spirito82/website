@@ -15,6 +15,9 @@
 	// Configurazione prezzi
 	let pricesConfig = { default_price: 180, custom_prices: {} };
 
+	// Configurazione giorni minimi di prenotazione
+	const MIN_BOOKING_DAYS = 3;
+
 	// Funzione per caricare i prezzi
 	async function loadPricesConfig() {
 		try {
@@ -168,10 +171,10 @@
 		const startDate = selectionStartDate <= endDate ? selectionStartDate : endDate;
 		const finalEndDate = selectionStartDate <= endDate ? endDate : selectionStartDate;
 
-		// Verifica che ci siano almeno 2 giorni
+		// Verifica che ci siano almeno il numero minimo di giorni
 		const dayCount = getDaysBetween(startDate, finalEndDate);
-		if (dayCount < 2) {
-			alert('Sono richieste prenotazioni di almeno 2 giorni consecutivi. Seleziona un periodo più lungo.');
+		if (dayCount < MIN_BOOKING_DAYS) {
+			alert(`Sono richieste prenotazioni di almeno ${MIN_BOOKING_DAYS} giorni consecutivi. Seleziona un periodo più lungo.`);
 			// Reset della selezione
 			selectionStartDate = null;
 			isSelectingRange = false;
@@ -350,10 +353,10 @@
 
 			console.log('SELECT callback - Display dates:', start, 'to', endDisplayStr);
 
-			// Verifica che ci siano almeno 2 giorni
+			// Verifica che ci siano almeno il numero minimo di giorni
 			const dayCount = getDaysBetween(start, endDisplayStr);
-			if (dayCount < 2) {
-				alert('Sono richieste prenotazioni di almeno 2 giorni consecutivi. Seleziona un periodo più lungo.');
+			if (dayCount < MIN_BOOKING_DAYS) {
+				alert(`Sono richieste prenotazioni di almeno ${MIN_BOOKING_DAYS} giorni consecutivi. Seleziona un periodo più lungo.`);
 				calendar.unselect();
 				return;
 			}
@@ -560,10 +563,10 @@
 		const price = parseInt(this.dataset.price);
 
 		if (start && end) {
-			// Verifica ancora una volta che siano almeno 2 giorni
+			// Verifica ancora una volta che siano almeno il numero minimo di giorni
 			const dayCount = getDaysBetween(start, end);
-			if (dayCount < 2) {
-				alert('Errore: Sono richieste prenotazioni di almeno 2 giorni consecutivi.');
+			if (dayCount < MIN_BOOKING_DAYS) {
+				alert(`Errore: Sono richieste prenotazioni di almeno ${MIN_BOOKING_DAYS} giorni consecutivi.`);
 				return;
 			}
 
@@ -575,7 +578,7 @@
 			showBookingForm(start, end, startFormatted, endFormatted, dayCount, price);
 
 		} else {
-			alert('Seleziona prima un periodo di almeno 2 giorni nel calendario');
+			alert(`Seleziona prima un periodo di almeno ${MIN_BOOKING_DAYS} giorni nel calendario`);
 		}
 	});
 
