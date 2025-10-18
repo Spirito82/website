@@ -107,7 +107,13 @@
 						free WiFi and air conditioning in a historic 1890 building.</p>
 				</div>
 			</div>
-			<a href="#availability" class="btn btn-primary btn-lg mt-3" data-i18n="home_book_btn">Book now</a>
+			<!-- Avviso soggiorno minimo -->
+			<div class="alert alert-warning d-inline-block mt-3 mx-auto" style="max-width: 300px;">
+				<small class="fw-bold" data-i18n="home_min_stay_notice">⏱️ Soggiorno minimo: 3 notti</small>
+			</div>
+			<div class="mt-3">
+				<a href="#availability" class="btn btn-primary btn-lg" data-i18n="home_book_btn">Prenota ora</a>
+			</div>
 		</div>
 	</section>
 
@@ -545,6 +551,12 @@
 	<section id="availability" class="py-5 bg-white">
 		<div class="container">
 			<h2 class="mb-4 text-center" data-i18n="availability_title">Availability & Prices</h2>
+			
+			<!-- Avviso soggiorno minimo nella sezione availability -->
+			<div class="alert alert-primary text-center mb-4">
+				<strong data-i18n="availability_min_stay_notice">📋 Importante: Il soggiorno minimo è di 3 notti consecutive</strong>
+			</div>
+			
 			<div id="calendar"></div>
 			<div class="alert alert-info mt-3" data-i18n="calendar_instructions">
 				<strong>Come prenotare:</strong> <br>
