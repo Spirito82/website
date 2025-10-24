@@ -1,13 +1,6 @@
 {
-  "generated_at": "2025-10-24T21:09:17.820Z",
+  "generated_at": "2025-10-24T22:10:32.055Z",
   "events": [
-    {
-      "uid": "a39a405163e425d4f41e9f2723dcd3ee@booking.com",
-      "start": "2025-10-20",
-      "end": "2025-10-24",
-      "summary": "CLOSED - Not available",
-      "price": null
-    },
     {
       "uid": "7b77723233237f05868f385140e6c345@booking.com",
       "start": "2025-10-25",
