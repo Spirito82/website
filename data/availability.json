@@ -1,12 +1,4 @@
 {
-  "generated_at": "2025-11-16T22:09:51.384Z",
-  "events": [
-    {
-      "uid": "ed752a5bc84f4b4fc1539aa3ab58a847@booking.com",
-      "start": "2025-11-13",
-      "end": "2025-11-16",
-      "summary": "CLOSED - Not available",
-      "price": null
-    }
-  ]
+  "generated_at": "2025-11-16T23:10:01.590Z",
+  "events": []
 }
