@@ -1,0 +1,3 @@
+ICAL_URL="https://ical.booking.com/v1/export?t=d0ca7784-2c18-4409-91e7-5133246af43a" node scripts/ical2json.js
+set ICAL_URL=https://ical.booking.com/v1/export?t=d0ca7784-2c18-4409-91e7-5133246af43a
+node scripts/ical2json.js
