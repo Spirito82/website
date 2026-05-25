@@ -1,13 +1,6 @@
 {
-  "generated_at": "2026-05-25T20:18:18.861Z",
+  "generated_at": "2026-05-25T22:00:27.992Z",
   "events": [
-    {
-      "uid": "744ae97dab8ca6fcd06f00473f784ca5@booking.com",
-      "start": "2026-05-21",
-      "end": "2026-05-25",
-      "summary": "CLOSED - Not available",
-      "price": null
-    },
     {
       "uid": "c1bdbdfbd9d1bccf8edbe03e8b54c87a@booking.com",
       "start": "2026-06-02",
