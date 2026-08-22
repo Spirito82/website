@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://www.mybandb.it/sitemap.xml
+Sitemap: https://staybologna.it/sitemap.xml
